@@ -3,6 +3,7 @@
           package="com.example.kson.moduledemo">
 
     <application
+        android:name=".MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -17,8 +18,9 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.kson.module_home.Main2Activity"/>
-
         <activity android:name="com.example.kson.module_push.PushActivity"/>
+        <activity android:name=".Main2Activity">
+        </activity>
     </application>
 
 </manifest>

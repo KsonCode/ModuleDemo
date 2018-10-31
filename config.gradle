@@ -10,11 +10,15 @@ ext {
 
     def dependVersion = [
             support : "27.1.1",
-            multidex: "1.0.1"
+            multidex: "1.0.1",
+            arouterCompile   : "1.2.2",
+            arouter   : "1.4.1",
     ]
 
     dependencies = [
             "appcompat-v7": "com.android.support:appcompat-v7:${dependVersion.support}",
             "multidex"    : "com.android.support:multidex:${dependVersion.multidex}",
+            "arouterCompile"                   : "com.alibaba:arouter-compiler:${dependVersion.arouterCompile}",
+            "arouter"                   : "com.alibaba:arouter-api:${dependVersion.arouter}",
     ]
 }

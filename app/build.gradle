@@ -10,9 +10,11 @@ android {
         versionName "1.0"
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [moduleName: project.getName()]
+                arguments = [ AROUTER_MODULE_NAME : project.getName() ]
             }
         }
+
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -31,6 +33,12 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     api rootProject.ext.dependencies["appcompat-v7"]
     api rootProject.ext.dependencies["multidex"]
-    implementation project(':module-home')
-    implementation project(':module-push')
+    api rootProject.ext.dependencies["arouter"]
+    if (!isModule) {
+        implementation project(':module-home')
+        implementation project(':module-push')
+
+    }
+    annotationProcessor rootProject.ext.dependencies["arouterCompile"]
+    implementation project(':lib-core')
 }

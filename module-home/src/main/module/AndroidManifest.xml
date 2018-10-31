@@ -3,6 +3,7 @@
           package="com.example.kson.module_home">
 
     <application
+        android:name=".MyApp"
         android:allowBackup="true"
         android:label="@string/app_name"
         android:supportsRtl="true"
