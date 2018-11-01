@@ -8,11 +8,9 @@ public abstract class BaseMvpActivity<M extends IBaseModel,P extends BasePresent
 
     public M model;
     public P presenter;
-    public RxManager rxManager;
 
     @Override
     protected void initData() {
-        rxManager = new RxManager();
         presenter = (P) initPresenter();
         if (presenter!=null){
             model = (M) presenter.getmModel();

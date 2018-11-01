@@ -62,8 +62,7 @@ public abstract class BaseFragment extends Fragment {
     /**
      * 初始化数据
      */
-    private void initData() {
-    }
+    public abstract void initData() ;
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
