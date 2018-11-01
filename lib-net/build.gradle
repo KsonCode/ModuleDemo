@@ -26,9 +26,24 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    api rootProject.ext.dependencies["retrofit"]
+    api rootProject.ext.dependencies["rxjava"]
+    api rootProject.ext.dependencies["rxandroid"]
+    api rootProject.ext.dependencies["retrofit-converter-scalars"]
+    api rootProject.ext.dependencies["retrofit-adapter-rxjava2"]
+    api rootProject.ext.dependencies["okhttp"]
+    api rootProject.ext.dependencies["okhttp-logging-interceptor"]
+//    api rootProject.ext.dependencies["logger"]
+    api rootProject.ext.dependencies["gson"]
+    implementation rootProject.ext.dependencies["utilcode"]
     api rootProject.ext.dependencies["appcompat-v7"]
     testImplementation 'junit:junit:4.12'
+    //调试工具  chrome://inspect/#devices
+    implementation 'com.facebook.stetho:stetho:1.5.0'
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
+    //调试okhttp
+    debugImplementation 'com.readystatesoftware.chuck:library:1.1.0'
+    releaseImplementation 'com.readystatesoftware.chuck:library-no-op:1.1.0'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }

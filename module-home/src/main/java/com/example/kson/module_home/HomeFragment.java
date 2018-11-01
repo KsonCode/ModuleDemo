@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.example.kson.lib_core.constants.Apath;
+//import com.example.kson.lib_core.constants.Apath;
 
 /**
  * Author:kson
@@ -17,7 +17,7 @@ import com.example.kson.lib_core.constants.Apath;
  * Time:2018/10/30
  * Description:
  */
-@Route(path = Apath.HOME_MAIN)
+//@Route(path = Apath.HOME_MAIN)
 public class HomeFragment extends Fragment{
 
     @Nullable

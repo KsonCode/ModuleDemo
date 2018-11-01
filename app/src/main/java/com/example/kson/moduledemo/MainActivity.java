@@ -1,67 +1,84 @@
 package com.example.kson.moduledemo;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.alibaba.android.arouter.facade.Postcard;
-import com.alibaba.android.arouter.facade.callback.NavCallback;
-import com.alibaba.android.arouter.launcher.ARouter;
-import com.example.kson.lib_core.constants.Apath;
+import com.example.kson.lib_core.base.mvp.BaseMvpActivity;
+import com.example.kson.lib_core.base.mvp.BasePresenter;
+import com.example.kson.lib_net.network.http.HttpRequestPresenter;
+import com.example.kson.lib_net.network.http.ModelCallback;
+import com.example.kson.lib_net.network.rx.RxManager;
+import com.example.kson.lib_net.utils.publickeytool.RsaCoder;
+import com.example.kson.moduledemo.contract.LoginContract;
+import com.example.kson.moduledemo.entity.UserEntity;
+import com.example.kson.moduledemo.model.LoginModel;
+import com.example.kson.moduledemo.presenter.LoginPresenter;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.HashMap;
+//import com.example.kson.lib_net.network.RetrofitHelper;
+//import com.example.kson.lib_core.constants.Apath;
+
+public class MainActivity extends BaseMvpActivity<LoginContract.ILoginModel, LoginContract.LoginPresenter> implements LoginContract.ILoginView {
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+    protected void initView() {
         Button button = findViewById(R.id.fromg);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                ARouter.getInstance().build("/home/home2").navigation(MainActivity.this, new NavCallback() {
-                    @Override
-                    public void onArrival(Postcard postcard) {
+                HashMap<String, Object> params = new HashMap<>();
+//                params.put("phone", "18612991023");
+//                params.put("pwd", RsaCoder.encryptByPublicKey("111111"));
+                params.put("mobile", "18612991023");
+                params.put("password", "222222");
 
-                    }
+                presenter.login(params);
 
-                    @Override
-                    public void onInterrupt(Postcard postcard) {
-                        super.onInterrupt(postcard);
-                    }
-                });
 
             }
         });
+    }
 
-//        Fragment fragmentHome = (Fragment) ARouter.getInstance().build(Apath.HOME_MAIN).navigation();
-//
-//
-//
-//        getSupportFragmentManager().beginTransaction()
-//                .add(R.id.fr_content, fragmentHome)
-////                .add(R.id.fl_Content, marketFragment)
-////                .add(R.id.fl_Content, messageFragment)
-////                .add(R.id.fl_Content, mineFragment)
-////                .add(R.id.fl_Content, walletFragment)
-//                .show(fragmentHome)
-////                .hide(marketFragment)
-////                .hide(messageFragment)
-////                .hide(mineFragment)
-////                .hide(walletFragment)
-//                .commit();
-
-
+    @Override
+    protected int bindLayoutId() {
+        return R.layout.activity_main;
     }
 
     public void home(View view) {
 
         //集成开发模式，可以调用
 //        startActivity(new Intent(this, PushActivity.class));
+
+    }
+
+    @Override
+    public void success(UserEntity userEntity) {
+
+        System.out.println("userentity:" + userEntity.mobile);
+
+    }
+
+    @Override
+    public BasePresenter initPresenter() {
+        return new LoginPresenter();
+    }
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void hideLoading() {
+
+    }
+
+    @Override
+    public void fail(String msg) {
 
     }
 }

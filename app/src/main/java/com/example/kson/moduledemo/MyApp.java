@@ -3,6 +3,11 @@ package com.example.kson.moduledemo;
 import android.app.Application;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.kson.lib_net.NetApp;
+import com.example.kson.lib_net.network.http.HttpRequestPresenter;
+import com.example.kson.lib_net.network.http.RetrofitHttpRequest;
+import com.example.kson.lib_net.network.rx.RxManager;
+import com.example.kson.moduledemo.common.Constants;
 
 /**
  * Author:kson
@@ -12,6 +17,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
  */
 public class MyApp extends Application {
 
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -19,5 +25,8 @@ public class MyApp extends Application {
         ARouter.openLog(); // 打印日志
         ARouter.openDebug(); // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险) }
         ARouter.init(this);
+        NetApp.init(this, Constants.BASE_URL);
+        HttpRequestPresenter.init(new RetrofitHttpRequest());
+//        HttpRequestPresenter.init(new RetrofitHttpRequest());
     }
 }

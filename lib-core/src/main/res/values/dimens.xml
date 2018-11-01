@@ -1,0 +1,182 @@
+<resources>
+
+    <dimen name="toolbar_title_size">34sp</dimen>
+
+    <!--控件width,Height的各dp值-->
+    <dimen name="width_height_1dp">1dp</dimen>
+    <dimen name="width_height_2dp">2dp</dimen>
+    <dimen name="width_height_7dp">7dp</dimen>
+    <dimen name="width_height_10dp">10dp</dimen>
+    <dimen name="width_height_12dp">12dp</dimen>
+    <dimen name="width_height_13dp">13dp</dimen>
+    <dimen name="width_height_14dp">14dp</dimen>
+    <dimen name="width_height_15dp">15dp</dimen>
+    <dimen name="width_height_20dp">20dp</dimen>
+    <dimen name="width_height_24dp">24dp</dimen>
+    <dimen name="width_height_25dp">25dp</dimen>
+    <dimen name="width_height_30dp">30dp</dimen>
+    <dimen name="width_height_33dp">33dp</dimen>
+    <dimen name="width_height_35dp">35dp</dimen>
+    <dimen name="width_height_40dp">40dp</dimen>
+    <dimen name="width_height_42.5dp">42.5dp</dimen>
+    <dimen name="width_height_45dp">45dp</dimen>
+    <dimen name="width_height_48dp">48dp</dimen>
+    <dimen name="width_height_50dp">50dp</dimen>
+    <dimen name="width_height_55dp">55dp</dimen>
+    <dimen name="width_height_57dp">57dp</dimen>
+    <dimen name="width_height_60dp">60dp</dimen>
+    <dimen name="width_height_64dp">64dp</dimen>
+    <dimen name="width_height_65dp">65dp</dimen>
+    <dimen name="width_height_70dp">70dp</dimen>
+    <dimen name="width_height_75dp">75dp</dimen>
+    <dimen name="width_height_80dp">80dp</dimen>
+    <dimen name="width_height_90dp">90dp</dimen>
+    <dimen name="width_height_96dp">96dp</dimen>
+    <dimen name="width_height_98dp">98dp</dimen>
+    <dimen name="width_height_109dp">109dp</dimen>
+    <dimen name="width_height_100dp">100dp</dimen>
+    <dimen name="width_height_110dp">110dp</dimen>
+    <dimen name="width_height_120dp">120dp</dimen>
+    <dimen name="width_height_124dp">124dp</dimen>
+    <dimen name="width_height_125dp">125dp</dimen>
+    <dimen name="width_height_132dp">132dp</dimen>
+    <dimen name="width_height_137dp">137dp</dimen>
+    <dimen name="width_height_140dp">140dp</dimen>
+    <dimen name="width_height_144dp">144dp</dimen>
+    <dimen name="width_height_150dp">150dp</dimen>
+    <dimen name="width_height_160dp">160dp</dimen>
+    <dimen name="width_height_168dp">168dp</dimen>
+    <dimen name="width_height_170dp">170dp</dimen>
+    <dimen name="width_height_180dp">180dp</dimen>
+    <dimen name="width_height_185dp">185dp</dimen>
+    <dimen name="width_height_200dp">200dp</dimen>
+    <dimen name="width_height_210dp">210dp</dimen>
+    <dimen name="width_height_219dp">219dp</dimen>
+    <dimen name="width_height_225dp">225dp</dimen>
+    <dimen name="width_height_234dp">234dp</dimen>
+    <dimen name="width_height_250dp">250dp</dimen>
+    <dimen name="width_height_255dp">255dp</dimen>
+    <dimen name="width_height_280dp">280dp</dimen>
+    <dimen name="width_height_315dp">315dp</dimen>
+    <dimen name="width_height_350dp">350dp</dimen>
+    <dimen name="width_height_436dp">436dp</dimen>
+    <dimen name="width_height_500dp">500dp</dimen>
+
+    <!--控件padding值-->
+    <dimen name="padding_1dp">1dp</dimen>
+    <dimen name="padding_5dp">5dp</dimen>
+    <dimen name="padding_8dp">8dp</dimen>
+    <dimen name="padding_10dp">10dp</dimen>
+    <dimen name="padding_12dp">12dp</dimen>
+    <dimen name="padding_14dp">14dp</dimen>
+
+
+    <!--控件margin值-->
+    <dimen name="margin_0.5dp">0.5dp</dimen>
+    <dimen name="margin_1dp">1dp</dimen>
+    <dimen name="margin_1.5dp">1.5dp</dimen>
+    <dimen name="margin_2dp">2dp</dimen>
+    <dimen name="margin_3dp">3dp</dimen>
+    <dimen name="margin_4dp">4dp</dimen>
+    <dimen name="margin_5dp">5dp</dimen>
+    <dimen name="margin_6dp">6dp</dimen>
+    <dimen name="margin_7dp">7dp</dimen>
+    <dimen name="margin_7.5dp">7.5dp</dimen>
+    <dimen name="margin_8dp">8dp</dimen>
+    <dimen name="margin_10dp">10dp</dimen>
+    <dimen name="margin_11dp">11dp</dimen>
+    <dimen name="margin_12dp">12dp</dimen>
+    <dimen name="margin_13dp">13dp</dimen>
+    <dimen name="margin_14dp">14dp</dimen>
+    <dimen name="margin_15dp">15dp</dimen>
+    <dimen name="margin_16dp">16dp</dimen>
+    <dimen name="margin_17dp">17dp</dimen>
+    <dimen name="margin_18.5dp">18.5dp</dimen>
+    <dimen name="margin_20dp">20dp</dimen>
+    <dimen name="margin_21dp">21dp</dimen>
+    <dimen name="margin_22.5dp">22.5dp</dimen>
+    <dimen name="margin_25dp">25dp</dimen>
+    <dimen name="margin_30dp">30dp</dimen>
+    <dimen name="margin_32dp">32dp</dimen>
+    <dimen name="margin_36dp">36dp</dimen>
+    <dimen name="margin_38dp">38dp</dimen>
+    <dimen name="margin_40dp">40dp</dimen>
+    <dimen name="margin_44.5dp">44.5dp</dimen>
+    <dimen name="margin_49dp">49dp</dimen>
+    <dimen name="margin_50dp">50dp</dimen>
+    <dimen name="margin_51dp">51dp</dimen>
+    <dimen name="margin_55dp">55dp</dimen>
+    <dimen name="margin_60dp">60dp</dimen>
+    <dimen name="margin_70dp">70dp</dimen>
+    <dimen name="margin_76dp">76dp</dimen>
+    <dimen name="margin_78dp">78dp</dimen>
+    <dimen name="margin_80dp">80dp</dimen>
+    <dimen name="margin_83dp">83dp</dimen>
+    <dimen name="margin_87dp">87dp</dimen>
+    <dimen name="margin_100dp">100dp</dimen>
+    <dimen name="margin_115dp">115dp</dimen>
+    <dimen name="margin_130dp">130dp</dimen>
+    <dimen name="margin_140dp">140dp</dimen>
+    <dimen name="margin_150dp">150dp</dimen>
+    <dimen name="margin_284dp">284dp</dimen>
+    <dimen name="margin_344dp">344dp</dimen>
+
+
+    <!--各textView的字体大小-->
+    <dimen name="my_text_size">16sp</dimen>
+    <dimen name="text_10sp">10sp</dimen>
+    <dimen name="text_11sp">11sp</dimen>
+    <dimen name="text_12sp">12sp</dimen>
+    <dimen name="text_13sp">13sp</dimen>
+    <dimen name="text_14sp">14sp</dimen>
+    <dimen name="text_15sp">15sp</dimen>
+    <dimen name="text_17sp">17sp</dimen>
+    <dimen name="text_16sp">16sp</dimen>
+    <dimen name="text_18sp">18sp</dimen>
+    <dimen name="text_19sp">19sp</dimen>
+    <dimen name="text_20sp">20sp</dimen>
+    <dimen name="text_24sp">24sp</dimen>
+    <dimen name="text_25sp">25sp</dimen>
+    <dimen name="text_30sp">30sp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+
+    <!--// 剪切图片的actionbar高度-->
+    <dimen name="crop__bar_height">64dp</dimen>
+
+    <dimen name="folder_cover_size">72dp</dimen>
+
+    <dimen name="image_size">120dp</dimen>
+
+    <dimen name="space_size">2dp</dimen>
+
+
+    <!--此处为三级联动的字体大小-->
+    <dimen name="pickerview_textsize">16sp</dimen>//字体大小
+    <dimen name="pickerview_topbar_btn_textsize">20sp</dimen>
+    <dimen name="pickerview_topbar_height">40dp</dimen>//取消、确定按钮的高度
+    <dimen name="pickerview_topbar_paddingleft">10dp</dimen>
+    <dimen name="pickerview_topbar_paddingright">30dp</dimen>
+    <dimen name="pickerview_topbar_title_textsize">21sp</dimen>
+
+    <dimen name="image_thumbnail">148dp</dimen>
+    <dimen name="image_thumbnail_spacing">2dp</dimen>
+
+    <dimen name="grid_expected_size">120dp</dimen>
+    <dimen name="item_margin_horizontal">24dp</dimen>
+    <dimen name="item_margin_vertical">8dp</dimen>
+
+    <dimen name="dialog_height">150dp</dimen>
+    <dimen name="dialog_height_v">120dp</dimen>
+    <dimen name="dialog_widht">250dp</dimen>
+    <dimen name="dialog_loding_widht">150dp</dimen>
+    <dimen name="dialog_error_widht">350dp</dimen>
+
+
+
+    <dimen name="alert_width">290dp</dimen>
+    <dimen name="common_circle_width">3dp</dimen>
+    <dimen name="progress_circle_radius">34dp</dimen>
+</resources>

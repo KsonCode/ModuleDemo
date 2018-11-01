@@ -13,6 +13,11 @@ ext {
             multidex: "1.0.1",
             arouterCompile   : "1.2.2",
             arouter   : "1.4.1",
+            retrofit  : "2.4.0",
+            okhttp    : "3.9.0",
+            constraint: "1.1.2",
+            utilcode  : "1.19.0",
+
     ]
 
     dependencies = [
@@ -20,5 +25,28 @@ ext {
             "multidex"    : "com.android.support:multidex:${dependVersion.multidex}",
             "arouterCompile"                   : "com.alibaba:arouter-compiler:${dependVersion.arouterCompile}",
             "arouter"                   : "com.alibaba:arouter-api:${dependVersion.arouter}",
+            "gson"                      : "com.google.code.gson:gson:2.8.5",
+//            //ui
+            "BaseRecyclerViewAdapter"   : "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22",
+//            "convenientbanner"          : "com.bigkoo:convenientbanner:2.0.5",
+//            "diegocarloslima_fgelv"     : "com.diegocarloslima:fgelv:0.1.+@aar",
+//
+//            //rx
+            "rxjava"                    : "io.reactivex.rxjava2:rxjava:2.2.0",
+            "rxandroid"                 : "io.reactivex.rxjava2:rxandroid:2.0.2",
+//
+//            //network
+            "retrofit"                  : "com.squareup.retrofit2:retrofit:${dependVersion.retrofit}",
+            "retrofit-converter-gson"   : "com.squareup.retrofit2:converter-gson:${dependVersion.retrofit}",
+            "retrofit-converter-scalars": "com.squareup.retrofit2:converter-scalars:${dependVersion.retrofit}",
+            "retrofit-adapter-rxjava2"  : "com.squareup.retrofit2:adapter-rxjava2:${dependVersion.retrofit}",
+            "okhttp"                    : "com.squareup.okhttp3:okhttp:${dependVersion.okhttp}",
+            "okhttp-logging-interceptor": "com.squareup.okhttp3:logging-interceptor:${dependVersion.okhttp}",
+            "glide"                     : "com.github.bumptech.glide:glide:4.7.1",
+//            //other
+            "multidex"                  : "com.android.support:multidex:1.0.1",
+            "logger"                    : "com.orhanobut:logger:2.2.0",
+            "utilcode"                  : "com.blankj:utilcode:${dependVersion.utilcode}",
+            "recyclerview-v7"           : "com.android.support:recyclerview-v7:${dependVersion.support}",
     ]
 }
