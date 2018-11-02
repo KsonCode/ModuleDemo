@@ -9,6 +9,6 @@ import com.example.kson.moduledemo.BuildConfig;
  * Description:
  */
 public class Constants {
-    public static String BASE_URL = BuildConfig.DEBUG?"http://www.zhaoapi.cn/":"http://www.zhaoapi.cn/";
-    public static String LOGIN_URL = "user/login";
+    public static String BASE_URL = BuildConfig.DEBUG?"https://172.17.8.100/":"https://www.zhaoapi.cn/";
+    public static String LOGIN_URL = "techApi/user/v1/login";
 }

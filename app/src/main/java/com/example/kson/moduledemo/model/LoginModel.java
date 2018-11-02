@@ -25,14 +25,12 @@ public class LoginModel implements LoginContract.ILoginModel {
             @Override
             public void onErrorMsg(int code, String msg) {
 
-                System.out.println("msg:"+msg);
                 rxManager.post("login",code +""+msg);
 
             }
 
             @Override
             public void onSuccess(UserEntity userEntity) {
-                System.out.println("userEntity:"+userEntity.mobile);
                 rxManager.post("login",userEntity);
 
             }

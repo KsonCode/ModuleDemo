@@ -107,6 +107,7 @@ public class OkhttpHelper {
             builder.addInterceptor(loggingInterceptor);
             //调试拦截器
             builder.addInterceptor(new StethoInterceptor());
+            //http拦截器
             builder.addInterceptor(chuckInterceptor);
         }
         File cacheFile = new File(NetConstants.PATH_CACHE);

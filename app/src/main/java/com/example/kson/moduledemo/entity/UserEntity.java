@@ -10,6 +10,7 @@ import com.example.kson.lib_net.network.BaseResponse;
  */
 public class UserEntity extends BaseResponse {
 
-    public String mobile;
+    public String phone;
+
 
 }

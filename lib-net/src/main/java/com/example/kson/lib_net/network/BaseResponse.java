@@ -3,16 +3,16 @@ package com.example.kson.lib_net.network;
 public class BaseResponse<T> extends Response
 {
 
-    private T data;
+    private T result;
 
 
     public T getData()
     {
-        return data;
+        return result;
     }
 
     public void setData(T data)
     {
-        data = data;
+        this.result = data;
     }
 }
