@@ -8,6 +8,7 @@ import android.widget.Button;
 import com.example.kson.lib_core.base.mvp.BaseMvpActivity;
 import com.example.kson.lib_core.base.mvp.BasePresenter;
 import com.example.kson.lib_core.utils.ToastUtils;
+import com.example.kson.lib_net.network.BaseResponse;
 import com.example.kson.lib_net.network.http.HttpRequestPresenter;
 import com.example.kson.lib_net.network.http.ModelCallback;
 import com.example.kson.lib_net.network.rx.RxManager;
@@ -23,7 +24,6 @@ import java.util.HashMap;
 
 public class MainActivity extends BaseMvpActivity<LoginContract.ILoginModel, LoginContract.LoginPresenter> implements LoginContract.ILoginView {
 
-
     @Override
     protected void initView() {
         Button button = findViewById(R.id.fromg);
@@ -34,7 +34,7 @@ public class MainActivity extends BaseMvpActivity<LoginContract.ILoginModel, Log
                 HashMap<String, Object> params = new HashMap<>();
 //                params.put("phone", "18612991023");
 //                params.put("pwd", RsaCoder.encryptByPublicKey("111111"));
-                params.put("phone", "18612991523");
+                params.put("phone", "18612991023");
 //                params.put("pwd", RsaCoder.encryptByPublicKey("111111"));
 
                 presenter.login(params);
@@ -57,8 +57,8 @@ public class MainActivity extends BaseMvpActivity<LoginContract.ILoginModel, Log
     }
 
     @Override
-    public void success(UserEntity userEntity) {
-        System.out.println("userentity:" + userEntity.phone);
+    public void success(BaseResponse<UserEntity> userEntity) {
+        com.blankj.utilcode.util.ToastUtils.showLong(userEntity.getMessage());
     }
 
     @Override

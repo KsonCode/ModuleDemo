@@ -6,6 +6,7 @@ import com.example.kson.lib_net.NetConstants;
 import com.example.kson.lib_net.network.BaseObserver;
 import com.example.kson.lib_net.network.BaseResponse;
 import com.example.kson.lib_net.network.ParameterizedTypeImpl;
+import com.example.kson.lib_net.network.Response;
 import com.example.kson.lib_net.network.rx.RxManager;
 import com.example.kson.lib_net.network.rx.exception.ApiException;
 import com.google.gson.Gson;
@@ -67,9 +68,9 @@ public abstract class ModelCallback<T> implements ICallback {
             public void subscribe(ObservableEmitter<String> emitter) throws Exception {
                 emitter.onNext(dataBean);
             }
-        }).map(new Function<String, T>() {
+        }).map(new Function<String, BaseResponse<T>>() {
             @Override
-            public T apply(String dataBean) throws Exception {
+            public BaseResponse<T> apply(String dataBean) throws Exception {
 //                Class<? extends T> geneticClass = getGenericClass(this);
                 BaseResponse<T> data;
                 if (isList) {
@@ -80,13 +81,13 @@ public abstract class ModelCallback<T> implements ICallback {
                 //只有当返回的code==success时才成功，其余情况全部抛出错误
                 if (data.getStatus().equals(NetConstants.HTTP_SUCCESS)) {
 
-                    return data.getResult();
+                    return data;
                 } else {
                     //抛出异常,让rxjava捕获,便于统一处理
                     throw new ApiException.ServerException(data.getStatus(), data.getMessage());
                 }
             }
-        }).subscribe(new BaseObserver<T>(rxManager) {
+        }).subscribe(new BaseObserver<BaseResponse<T>>(rxManager) {
 
             @Override
             public void onError(int errorCode, String msg) {
@@ -95,7 +96,7 @@ public abstract class ModelCallback<T> implements ICallback {
             }
 
             @Override
-            public void onNext(T dataBean) {
+            public void onNext(BaseResponse<T> dataBean) {
                 onSuccess(dataBean);
             }
         });
@@ -107,7 +108,7 @@ public abstract class ModelCallback<T> implements ICallback {
         return (Class) params[0];
     }
 
-    public abstract void onSuccess(T t);
+    public abstract void onSuccess(BaseResponse<T> t);
 
 
 }

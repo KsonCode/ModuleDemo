@@ -14,6 +14,7 @@ public abstract class MyConsumer<T> implements Consumer<T> {
         return this;
     }
 
+
     @Override
     public void accept(T o) {
         if (o instanceof List) {

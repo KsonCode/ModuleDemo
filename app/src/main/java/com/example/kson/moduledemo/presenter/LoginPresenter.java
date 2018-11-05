@@ -1,5 +1,7 @@
 package com.example.kson.moduledemo.presenter;
 
+import com.example.kson.lib_core.utils.ToastUtils;
+import com.example.kson.lib_net.network.BaseResponse;
 import com.example.kson.lib_net.network.rx.RxManager;
 import com.example.kson.moduledemo.contract.LoginContract;
 import com.example.kson.moduledemo.entity.UserEntity;
@@ -23,8 +25,10 @@ public class LoginPresenter extends LoginContract.LoginPresenter{
 
     @Override
     protected void accepts(Object list, Object o) {
-        if (o instanceof UserEntity){
-            getView().success((UserEntity) o);
+        if (o instanceof BaseResponse){
+            getView().success((BaseResponse<UserEntity>) o);
+        }else if(o instanceof String){
+            com.blankj.utilcode.util.ToastUtils.showLong(o+"");
         }
 
     }

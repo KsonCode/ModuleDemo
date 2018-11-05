@@ -3,6 +3,7 @@ package com.example.kson.moduledemo.contract;
 import com.example.kson.lib_core.base.mvp.BasePresenter;
 import com.example.kson.lib_core.base.mvp.IBaseModel;
 import com.example.kson.lib_core.base.mvp.IBaseView;
+import com.example.kson.lib_net.network.BaseResponse;
 import com.example.kson.lib_net.network.rx.RxManager;
 import com.example.kson.moduledemo.entity.UserEntity;
 import com.example.kson.moduledemo.model.LoginModel;
@@ -46,7 +47,7 @@ public interface LoginContract {
      */
     interface ILoginView extends IBaseView {
 
-        void success(UserEntity userEntity);
+        void success(BaseResponse<UserEntity> userEntity);
 
         void fail(String msg);
 

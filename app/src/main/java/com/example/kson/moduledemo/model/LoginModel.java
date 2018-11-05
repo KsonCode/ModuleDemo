@@ -1,6 +1,7 @@
 package com.example.kson.moduledemo.model;
 
 import com.blankj.utilcode.util.ToastUtils;
+import com.example.kson.lib_net.network.BaseResponse;
 import com.example.kson.lib_net.network.http.HttpRequestPresenter;
 import com.example.kson.lib_net.network.http.ModelCallback;
 import com.example.kson.lib_net.network.rx.RxManager;
@@ -22,17 +23,17 @@ public class LoginModel implements LoginContract.ILoginModel {
     public void login(HashMap<String, Object> params, final RxManager rxManager) {
 
         HttpRequestPresenter.getInstance().post(Constants.CHECK_URL, params, rxManager, new ModelCallback<UserEntity>(false,UserEntity.class) {
+            //没有result则返回BaseResponse<UserEntity> t
+            @Override
+            public void onSuccess(BaseResponse<UserEntity> t) {
+                rxManager.post("login",t);
+            }
+
             @Override
             public void onErrorMsg(int code, String msg) {
-                ToastUtils.showLong(msg);
-//                rxManager.post("login",code +""+msg);
+                rxManager.post("login",code +""+msg);
             }
 
-            @Override
-            public void onSuccess(UserEntity userEntity) {
-                rxManager.post("login",userEntity);
-
-            }
         });
     }
 }
