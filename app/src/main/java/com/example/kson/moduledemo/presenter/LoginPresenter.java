@@ -28,7 +28,7 @@ public class LoginPresenter extends LoginContract.LoginPresenter{
         if (o instanceof BaseResponse){
             getView().success((BaseResponse<UserEntity>) o);
         }else if(o instanceof String){
-            com.blankj.utilcode.util.ToastUtils.showLong(o+"");
+            getView().fail((String) o);
         }
 
     }
