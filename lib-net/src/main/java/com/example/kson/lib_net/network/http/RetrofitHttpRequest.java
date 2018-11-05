@@ -2,6 +2,7 @@ package com.example.kson.lib_net.network.http;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.SPUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.example.kson.lib_net.ApiService;
 import com.example.kson.lib_net.network.BaseObserver;
 import com.example.kson.lib_net.network.RetrofitHelper;
@@ -52,6 +53,7 @@ public class RetrofitHttpRequest implements HttpRequest {
                     @Override
                     public void onError(int errorCode, String msg) {
                         LogUtils.e("网络错误码：" + errorCode + "\n" + msg);
+
                         callback.onErrorMsg(errorCode, msg);
                     }
 

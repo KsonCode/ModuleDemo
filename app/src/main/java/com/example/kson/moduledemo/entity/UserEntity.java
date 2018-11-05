@@ -9,8 +9,8 @@ import com.example.kson.lib_net.network.BaseResponse;
  * Description:
  */
 public class UserEntity extends BaseResponse {
+public String phone;
 
-    public String phone;
 
 
 }

@@ -1,16 +1,15 @@
 package com.example.kson.lib_net.network;
 
 public class Response {
-    private int status;
+    private String status;
     private String message;
-    public int getCode()
-    {
+
+    public String getStatus() {
         return status;
     }
 
-    public void setCode(int code)
-    {
-        this.status = code;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getMessage()

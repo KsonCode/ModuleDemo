@@ -30,16 +30,33 @@ public abstract class ModelCallback<T> implements ICallback {
     }
 
     public static <T> BaseResponse<T> fromJsonObject(String reader, Class<T> clazz) {
+
+        String result = "";
+        if (reader.contains("result")) {
+            result = reader;
+        } else {
+            result = reader.substring(0, reader.length() - 1) + ",\"result\":{}}";
+        }
+
         Type type = new ParameterizedTypeImpl(BaseResponse.class, new Class[]{clazz});
-        return new Gson().fromJson(reader, type);
+
+        return new Gson().fromJson(result, type);
+
     }
 
     public static <T> BaseResponse<List<T>> fromJsonArray(String reader, Class<T> clazz) {
+        String result = "";
+        if (reader.contains("result")) {
+            result = reader;
+        } else {
+            result = reader.substring(0, reader.length() - 1) + ",\"result\":{}}";
+        }
+
         // 生成List<T> 中的 List<T>
         Type listType = new ParameterizedTypeImpl(List.class, new Class[]{clazz});
         // 根据List<T>生成完整的Result<List<T>>
         Type type = new ParameterizedTypeImpl(BaseResponse.class, new Type[]{listType});
-        return new Gson().fromJson(reader, type);
+        return new Gson().fromJson(result, type);
     }
 
     @Override
@@ -61,12 +78,12 @@ public abstract class ModelCallback<T> implements ICallback {
                     data = fromJsonObject(dataBean, beanClass);
                 }
                 //只有当返回的code==success时才成功，其余情况全部抛出错误
-                if (data.getCode() == NetConstants.HTTP_SUCCESS) {
+                if (data.getStatus().equals(NetConstants.HTTP_SUCCESS)) {
 
-                    return data.getData();
+                    return data.getResult();
                 } else {
                     //抛出异常,让rxjava捕获,便于统一处理
-                    throw new ApiException.ServerException(data.getCode(), data.getMessage());
+                    throw new ApiException.ServerException(data.getStatus(), data.getMessage());
                 }
             }
         }).subscribe(new BaseObserver<T>(rxManager) {

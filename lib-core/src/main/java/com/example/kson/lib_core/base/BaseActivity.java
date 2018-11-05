@@ -55,7 +55,6 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         AppManager.getInstance().addActivity(this);
-//
         if (ScreenUtils.isPortrait()) {
             ScreenUtils.adaptScreen4VerticalSlide(this, 750);
         } else {

@@ -5,14 +5,11 @@ public class BaseResponse<T> extends Response
 
     private T result;
 
-
-    public T getData()
-    {
+    public T getResult() {
         return result;
     }
 
-    public void setData(T data)
-    {
-        this.result = data;
+    public void setResult(T result) {
+        this.result = result;
     }
 }

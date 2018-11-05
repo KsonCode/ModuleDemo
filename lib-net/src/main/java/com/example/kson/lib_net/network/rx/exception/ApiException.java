@@ -1,6 +1,7 @@
 package com.example.kson.lib_net.network.rx.exception;
 
 import com.example.kson.lib_net.NetConstants;
+import com.facebook.stetho.common.LogUtil;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializer;
 import com.google.gson.JsonSyntaxException;
@@ -74,11 +75,12 @@ public class ApiException extends Exception {
             exception = new ApiException(throwable, PARSE_ERROR);
             exception.setMsg("解析错误");
         } else if (throwable instanceof ServerException) {
-            int errorCode = ((ServerException) throwable).getErrorCode();
+            String errorCode = ((ServerException) throwable).getErrorCode();
             String msg = ((ServerException) throwable).getErrorMsg();
-            exception = new ApiException(throwable, errorCode);
+            exception = new ApiException(throwable, Integer.parseInt(errorCode));
             exception.setMsg(msg);
         } else {
+            LogUtil.e("throwable====="+throwable);
             exception = new ApiException(throwable, UNKNOWN);
             exception.setMsg("未知错误");
         }
@@ -182,20 +184,20 @@ public class ApiException extends Exception {
      * 服务端异常
      */
     public static class ServerException extends RuntimeException {
-        private int code;
-        private String msg;
+        private String status;
+        private String message;
 
-        public ServerException(int errorCode, String errorMsg) {
-            this.code = errorCode;
-            this.msg = errorMsg;
+        public ServerException(String errorCode, String errorMsg) {
+            this.status = errorCode;
+            this.message = errorMsg;
         }
 
-        public int getErrorCode() {
-            return this.code;
+        public String getErrorCode() {
+            return this.status;
         }
 
         public String getErrorMsg() {
-            return this.msg;
+            return this.message;
         }
     }
 }

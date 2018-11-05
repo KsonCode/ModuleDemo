@@ -34,8 +34,8 @@ public class MainActivity extends BaseMvpActivity<LoginContract.ILoginModel, Log
                 HashMap<String, Object> params = new HashMap<>();
 //                params.put("phone", "18612991023");
 //                params.put("pwd", RsaCoder.encryptByPublicKey("111111"));
-                params.put("phone", "18612991023");
-                params.put("pwd", RsaCoder.encryptByPublicKey("111111"));
+                params.put("phone", "18612991523");
+//                params.put("pwd", RsaCoder.encryptByPublicKey("111111"));
 
                 presenter.login(params);
 
@@ -58,11 +58,7 @@ public class MainActivity extends BaseMvpActivity<LoginContract.ILoginModel, Log
 
     @Override
     public void success(UserEntity userEntity) {
-
-        com.blankj.utilcode.util.ToastUtils.showLong(userEntity.phone);
-
         System.out.println("userentity:" + userEntity.phone);
-
     }
 
     @Override
