@@ -44,6 +44,7 @@ public class ApiException extends Exception {
 
     public static ApiException handlerException(Throwable throwable) {
         ApiException exception = null;
+        LogUtil.e("throwable=====" + throwable);
         if (throwable instanceof HttpException) {
             HttpException httpException = (HttpException) throwable;
             exception = new ApiException(httpException, httpException.code());
@@ -80,7 +81,7 @@ public class ApiException extends Exception {
             exception = new ApiException(throwable, Integer.parseInt(errorCode));
             exception.setMsg(msg);
         } else {
-            LogUtil.e("throwable====="+throwable);
+
             exception = new ApiException(throwable, UNKNOWN);
             exception.setMsg("未知错误");
         }
@@ -180,6 +181,7 @@ public class ApiException extends Exception {
 //            return this.message;
 //        }
 //    }
+
     /**
      * 服务端异常
      */

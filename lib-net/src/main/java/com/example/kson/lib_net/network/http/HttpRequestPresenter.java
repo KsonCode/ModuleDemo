@@ -29,7 +29,12 @@ public class HttpRequestPresenter<T> implements HttpRequest {
     }
 
     @Override
-    public void post(String url, HashMap<String,Object> params, RxManager rxManager, ICallback callback) {
-        httpRequest.post(url,params,rxManager,callback);
+    public void post(String url, HashMap<String,Object> params, ICallback callback) {
+        httpRequest.post(url,params,callback);
+    }
+
+    @Override
+    public void get(String url, HashMap<String, Object> params, ICallback callback) {
+        httpRequest.get(url,params,callback);
     }
 }

@@ -11,17 +11,17 @@ import io.reactivex.disposables.Disposable;
 /**
  */
 public abstract class BaseObserver<T> implements Observer<T> {
-    protected RxManager rxManager;
+//    protected RxManager rxManager;
 
-    public BaseObserver(RxManager rxManager) {
-        this.rxManager = rxManager;
-    }
+//    public BaseObserver(RxManager rxManager) {
+//        this.rxManager = rxManager;
+//    }
     public BaseObserver() {
     }
-    @Override
-    public void onSubscribe(Disposable d) {
-        rxManager.add(d);
-    }
+//    @Override
+//    public void onSubscribe(Disposable d) {
+////        rxManager.add(d);
+//    }
 
     @Override
     public void onComplete() {

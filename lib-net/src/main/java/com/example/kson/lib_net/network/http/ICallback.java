@@ -7,5 +7,5 @@ public interface ICallback{
 
     void onErrorMsg(int code, String msg);
 
-    void onNext(String t, RxManager rxManager);
+    void onNext(String t);
 }

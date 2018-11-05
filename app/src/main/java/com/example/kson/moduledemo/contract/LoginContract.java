@@ -3,16 +3,14 @@ package com.example.kson.moduledemo.contract;
 import com.example.kson.lib_core.base.mvp.BasePresenter;
 import com.example.kson.lib_core.base.mvp.IBaseModel;
 import com.example.kson.lib_core.base.mvp.IBaseView;
+import com.example.kson.lib_net.network.PresenterCallback;
 import com.example.kson.lib_net.network.BaseResponse;
-import com.example.kson.lib_net.network.rx.RxManager;
+import com.example.kson.moduledemo.entity.News;
 import com.example.kson.moduledemo.entity.UserEntity;
 import com.example.kson.moduledemo.model.LoginModel;
 
-import java.io.File;
 import java.util.HashMap;
-import java.util.Map;
-
-import io.reactivex.Observable;
+import java.util.List;
 
 /**
  * Author:kson
@@ -38,7 +36,7 @@ public interface LoginContract {
      */
     interface ILoginModel extends IBaseModel {
 
-        void login(HashMap<String,Object> params,RxManager rxManager);
+        void login(HashMap<String,Object> params, PresenterCallback<UserEntity> callback);
 
     }
 

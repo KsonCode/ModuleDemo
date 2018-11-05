@@ -8,7 +8,7 @@ import java.io.File;
 public class NetConstants
 {
     //http请求成功
-    public static final String HTTP_SUCCESS = "0000";
+    public static final String HTTP_SUCCESS = "0";
 
     //token过期了
     public static final int EXPIRED_TOKEN = 1001;

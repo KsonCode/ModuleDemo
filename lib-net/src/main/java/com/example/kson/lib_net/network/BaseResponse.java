@@ -3,13 +3,13 @@ package com.example.kson.lib_net.network;
 public class BaseResponse<T> extends Response
 {
 
-    private T result;
+    private T data;
 
     public T getResult() {
-        return result;
+        return data;
     }
 
     public void setResult(T result) {
-        this.result = result;
+        this.data = result;
     }
 }

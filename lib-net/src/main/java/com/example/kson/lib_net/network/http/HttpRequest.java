@@ -7,5 +7,6 @@ import java.util.HashMap;
 
 public interface HttpRequest {
 
-    void post(String url, HashMap<String, Object> params, RxManager rxManager, ICallback callback);
+    void post(String url, HashMap<String, Object> params, ICallback callback);
+    void get(String url, HashMap<String, Object> params, ICallback callback);
 }

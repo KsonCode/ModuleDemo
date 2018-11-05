@@ -11,9 +11,9 @@ import java.lang.ref.WeakReference;
  * Time:2018/09/04
  * Description:
  */
-public abstract class BasePresenter<M, V> extends MyConsumer {
+public abstract class BasePresenter<M, V> {
     public M mModel;
-    private RxManager rxManager;
+//    private RxManager rxManager;
     private WeakReference<V> mViews;
 
     public abstract M getmModel();
@@ -26,7 +26,7 @@ public abstract class BasePresenter<M, V> extends MyConsumer {
      */
     public void attach(M mModel, V mView) {
         this.mModel = mModel;
-        rxManager = new RxManager();
+//        rxManager = new RxManager();
         mViews = new WeakReference<>(mView);
     }
 
@@ -38,9 +38,9 @@ public abstract class BasePresenter<M, V> extends MyConsumer {
         return null != mViews && null != mViews.get();
     }
 
-    protected RxManager getRxManager() {
-        return rxManager;
-    }
+//    protected RxManager getRxManager() {
+//        return rxManager;
+//    }
 
     /**
      * 解绑
@@ -52,17 +52,17 @@ public abstract class BasePresenter<M, V> extends MyConsumer {
             mViews = null;
         }
 
-        if (rxManager != null) {
-            rxManager.clear();
-        }
+//        if (rxManager != null) {
+//            rxManager.clear();
+//        }
 
 
     }
 
-    @Override
-    public void accept(Object list, Object o) {
-        accepts(list,o);
-    }
-
-    protected abstract void accepts(Object list, Object o);
+//    @Override
+//    public void accept(Object list, Object o) {
+//        accepts(list,o);
+//    }
+//
+//    protected abstract void accepts(Object list, Object o);
 }

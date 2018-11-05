@@ -15,6 +15,8 @@ import com.example.kson.lib_net.utils.KeyHelper;
 import java.util.HashMap;
 import java.util.Locale;
 
+import io.reactivex.disposables.Disposable;
+
 public class RetrofitHttpRequest implements HttpRequest {
     private static String ANDROID_VERSION = "Android_0.0.2";
     private ApiService apiService;
@@ -36,7 +38,7 @@ public class RetrofitHttpRequest implements HttpRequest {
     }
 
     @Override
-    public void post(String url, HashMap<String, Object> params, RxManager rxManager, final ICallback callback) {
+    public void post(String url, HashMap<String, Object> params, final ICallback callback) {
 //        params.put("text", "Android");
 //        String data = EncryBody.encryBody(params);
 //
@@ -48,7 +50,7 @@ public class RetrofitHttpRequest implements HttpRequest {
         apiService.getData(url, params)
                 .map(new HttpResultFunc())
                 .compose(RxSchedulers.<String>io_main())
-                .subscribe(new BaseObserver<String>(rxManager) {
+                .subscribe(new BaseObserver<String>() {
 
                     @Override
                     public void onError(int errorCode, String msg) {
@@ -58,10 +60,41 @@ public class RetrofitHttpRequest implements HttpRequest {
                     }
 
                     @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
                     public void onNext(String dataBean) {
-                        callback.onNext(dataBean, rxManager);
+                        callback.onNext(dataBean);
                     }
                 });
 
+    }
+
+    @Override
+    public void get(String url, HashMap<String, Object> params, final ICallback callback) {
+        apiService.doGetData(url, params)
+                .map(new HttpResultFunc())
+                .compose(RxSchedulers.<String>io_main())
+                .subscribe(new BaseObserver<String>() {
+
+                    @Override
+                    public void onError(int errorCode, String msg) {
+                        LogUtils.e("网络错误码：" + errorCode + "\n" + msg);
+
+                        callback.onErrorMsg(errorCode, msg);
+                    }
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(String dataBean) {
+                        callback.onNext(dataBean);
+                    }
+                });
     }
 }

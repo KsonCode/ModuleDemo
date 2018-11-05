@@ -6,30 +6,38 @@ import com.example.kson.lib_net.NetConstants;
 import com.example.kson.lib_net.network.BaseObserver;
 import com.example.kson.lib_net.network.BaseResponse;
 import com.example.kson.lib_net.network.ParameterizedTypeImpl;
-import com.example.kson.lib_net.network.Response;
-import com.example.kson.lib_net.network.rx.RxManager;
 import com.example.kson.lib_net.network.rx.exception.ApiException;
 import com.google.gson.Gson;
 
-import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.util.List;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Function;
 
 public abstract class ModelCallback<T> implements ICallback {
-
-    Class beanClass;
+    Class<T> tClass;
     private boolean isList;
 
-    public ModelCallback(boolean isList, Class beanClass) {
-        this.isList = isList;
-        this.beanClass = beanClass;
+    /**
+     *
+     * @param islist
+     * @param tClass 对象解析
+     */
+    public ModelCallback(boolean islist,Class<T> tClass){
+        this.isList = islist;
+        this.tClass = tClass;
     }
 
+    /**
+     * 数组解析
+     * @param islist
+     */
+    public ModelCallback(boolean islist){
+        this.isList = islist;
+    }
     public static <T> BaseResponse<T> fromJsonObject(String reader, Class<T> clazz) {
 
         String result = "";
@@ -45,49 +53,51 @@ public abstract class ModelCallback<T> implements ICallback {
 
     }
 
-    public static <T> BaseResponse<List<T>> fromJsonArray(String reader, Class<T> clazz) {
-        String result = "";
-        if (reader.contains("result")) {
-            result = reader;
-        } else {
-            result = reader.substring(0, reader.length() - 1) + ",\"result\":{}}";
-        }
-
-        // 生成List<T> 中的 List<T>
-        Type listType = new ParameterizedTypeImpl(List.class, new Class[]{clazz});
-        // 根据List<T>生成完整的Result<List<T>>
-        Type type = new ParameterizedTypeImpl(BaseResponse.class, new Type[]{listType});
-        return new Gson().fromJson(result, type);
-    }
+//    public static <T> BaseResponse<List<T>> fromJsonArray(String reader, Class<T> clazz) {
+//        String result = "";
+//        if (reader.contains("result")) {
+//            result = reader;
+//        } else {
+//            result = reader.substring(0, reader.length() - 1) + ",\"result\":{}}";
+//        }
+//
+//        // 生成List<T> 中的 List<T>
+//        Type listType = new ParameterizedTypeImpl(List.class, new Class[]{clazz});
+//        // 根据List<T>生成完整的Result<List<T>>
+//        Type type = new ParameterizedTypeImpl(BaseResponse.class, new Type[]{listType});
+//        return new GsonBuilder().serializeNulls().create().fromJson(result, type);
+//    }
 
     @Override
-    public void onNext(final String dataBean, RxManager rxManager) {
+    public void onNext(final String dataBean) {
 
         Observable.create(new ObservableOnSubscribe<String>() {
             @Override
             public void subscribe(ObservableEmitter<String> emitter) throws Exception {
                 emitter.onNext(dataBean);
             }
-        }).map(new Function<String, BaseResponse<T>>() {
+        }).map(new Function<String, T>() {
             @Override
-            public BaseResponse<T> apply(String dataBean) throws Exception {
+            public T apply(String dataBean) throws Exception {
 //                Class<? extends T> geneticClass = getGenericClass(this);
-                BaseResponse<T> data;
+                BaseResponse<T> data = null;
+//
                 if (isList) {
-                    data = fromJsonArray(dataBean, beanClass);
+                    data = (BaseResponse<T>) new Gson().fromJson(dataBean, BaseResponse.class);
                 } else {
-                    data = fromJsonObject(dataBean, beanClass);
+                    data = fromJsonObject(dataBean,tClass);
                 }
                 //只有当返回的code==success时才成功，其余情况全部抛出错误
                 if (data.getStatus().equals(NetConstants.HTTP_SUCCESS)) {
 
-                    return data;
+                    onSuccessMsg(data.getStatus(),data.getMessage());
+                    return data.getResult();
                 } else {
                     //抛出异常,让rxjava捕获,便于统一处理
                     throw new ApiException.ServerException(data.getStatus(), data.getMessage());
                 }
             }
-        }).subscribe(new BaseObserver<BaseResponse<T>>(rxManager) {
+        }).subscribe(new BaseObserver<T>() {
 
             @Override
             public void onError(int errorCode, String msg) {
@@ -96,19 +106,19 @@ public abstract class ModelCallback<T> implements ICallback {
             }
 
             @Override
-            public void onNext(BaseResponse<T> dataBean) {
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(T dataBean) {
                 onSuccess(dataBean);
             }
         });
     }
 
-    private Class<? extends T> getGenericClass(Object object) {
-        Type genType = getClass().getGenericSuperclass();
-        Type[] params = ((ParameterizedType) genType).getActualTypeArguments();
-        return (Class) params[0];
-    }
-
-    public abstract void onSuccess(BaseResponse<T> t);
+    public abstract void onSuccess(T t);
+    public abstract void onSuccessMsg(String status,String message);
 
 
 }
