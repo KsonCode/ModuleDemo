@@ -30,7 +30,7 @@ public class LoginModel implements LoginContract.ILoginModel {
 
             @Override
             public void onErrorMsg(int code, String msg) {
-                rxManager.post("login",code +""+msg);
+                rxManager.post("login",""+msg);
             }
 
         });
