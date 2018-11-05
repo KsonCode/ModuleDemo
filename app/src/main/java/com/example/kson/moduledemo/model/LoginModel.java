@@ -23,7 +23,6 @@ public class LoginModel implements LoginContract.ILoginModel {
     public void login(HashMap<String, Object> params, final RxManager rxManager) {
 
         HttpRequestPresenter.getInstance().post(Constants.CHECK_URL, params, rxManager, new ModelCallback<UserEntity>(false,UserEntity.class) {
-            //没有result则返回BaseResponse<UserEntity> t
             @Override
             public void onSuccess(BaseResponse<UserEntity> t) {
                 rxManager.post("login",t);
