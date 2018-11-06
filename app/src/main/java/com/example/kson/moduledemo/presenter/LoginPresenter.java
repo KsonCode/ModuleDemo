@@ -16,14 +16,53 @@ import java.util.List;
  * Description:
  */
 public class LoginPresenter extends LoginContract.LoginPresenter{
+    @Override
+    public void infoRecommendList(HashMap<String, Object> params) {
+        mModel.infoRecommendList(params, new PresenterCallback<List<News>>() {
+            @Override
+            public void onSuccess(List<News> news) {
+
+            }
+
+            @Override
+            public void onSuccessMsg(String status, String message) {
+                ToastUtils.showLong(message+"");
+            }
+
+            @Override
+            public void onErrorMsg(int code, String msg) {
+
+            }
+        });
+    }
 
     @Override
     public void login(HashMap<String, Object> params) {
         mModel.login(params, new PresenterCallback<UserEntity>() {
+            @Override
+            public void onSuccess(UserEntity userEntity) {
+
+            }
 
             @Override
-            public void onSuccess(UserEntity news) {
-                ToastUtils.showLong(news.mobile+"");
+            public void onSuccessMsg(String status, String message) {
+
+            }
+
+            @Override
+            public void onErrorMsg(int code, String msg) {
+
+            }
+        });
+
+    }
+
+    @Override
+    public void checkPhone(HashMap<String, Object> params) {
+        mModel.checkPhone(params, new PresenterCallback<UserEntity>() {
+            @Override
+            public void onSuccess(UserEntity userEntity) {
+
             }
 
             @Override

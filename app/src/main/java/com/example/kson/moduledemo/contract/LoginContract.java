@@ -28,6 +28,8 @@ public interface LoginContract {
         }
 
         public abstract void login(HashMap<String,Object> params);
+        public abstract void checkPhone(HashMap<String,Object> params);
+        public abstract void infoRecommendList(HashMap<String,Object> params);
 
     }
 
@@ -36,6 +38,8 @@ public interface LoginContract {
      */
     interface ILoginModel extends IBaseModel {
 
+        void checkPhone(HashMap<String,Object> params, PresenterCallback<UserEntity> callback);
+        void infoRecommendList(HashMap<String,Object> params, PresenterCallback<List<News>> callback);
         void login(HashMap<String,Object> params, PresenterCallback<UserEntity> callback);
 
     }
@@ -45,9 +49,8 @@ public interface LoginContract {
      */
     interface ILoginView extends IBaseView {
 
-        void success(BaseResponse<UserEntity> userEntity);
+        //
 
-        void fail(String msg);
 
     }
 }

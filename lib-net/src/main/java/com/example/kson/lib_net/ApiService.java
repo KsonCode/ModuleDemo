@@ -7,11 +7,13 @@ import io.reactivex.Observable;
 import okhttp3.ResponseBody;
 import retrofit2.Response;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.HeaderMap;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.QueryMap;
 import retrofit2.http.Streaming;
 import retrofit2.http.Url;
@@ -26,8 +28,6 @@ public interface ApiService {
     //公用的接口
     @GET
     Observable<Response<String>> doGetData( @Url String url, @QueryMap HashMap<String,Object> body);
-
-
     //公用的接口
     @POST
     Observable<Response<String>> getData( @Url String url, @Body String body);

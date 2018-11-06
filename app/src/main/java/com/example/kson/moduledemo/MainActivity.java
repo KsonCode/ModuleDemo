@@ -32,17 +32,17 @@ public class MainActivity extends BaseMvpActivity<LoginContract.ILoginModel, Log
             public void onClick(View view) {
 
                 HashMap<String, Object> params = new HashMap<>();
-                params.put("mobile","18612991023");
-                params.put("password","222222");
-//                params.put("phone", "18612991023");
-//                params.put("pwd", RsaCoder.encryptByPublicKey("111111"));
+//                params.put("mobile","18612991023");
+//                params.put("password","222222");
+                params.put("phone", "18612991023");
+                params.put("pwd", RsaCoder.encryptByPublicKey("111111"));
 //                params.put("phone", "18612991523");
                 params.put("plateId", "12");
                 params.put("page", "1");
                 params.put("count", "5");
 //                params.put("pwd", RsaCoder.encryptByPublicKey("111111"));
 
-                presenter.login(params);
+                presenter.checkPhone(params);
 
 
             }

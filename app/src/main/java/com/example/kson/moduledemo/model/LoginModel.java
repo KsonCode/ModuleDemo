@@ -22,10 +22,30 @@ import java.util.List;
 public class LoginModel implements LoginContract.ILoginModel {
 
 
+    @Override
+    public void checkPhone(HashMap<String, Object> params, PresenterCallback<UserEntity> callback) {
+        HttpRequestPresenter.getInstance().post(Constants.CHECK_URL, params, new ModelCallback<UserEntity>(false
+        ,UserEntity.class) {
+            @Override
+            public void onErrorMsg(int code, String msg) {
+                ToastUtils.showLong(msg);
+            }
+
+            @Override
+            public void onSuccess(UserEntity userEntity) {
+
+            }
+
+            @Override
+            public void onSuccessMsg(String status, String message) {
+                ToastUtils.showLong(message);
+            }
+        });
+    }
 
     @Override
-    public void login(HashMap<String, Object> params, final PresenterCallback<UserEntity> callback) {
-        HttpRequestPresenter.getInstance().get(Constants.NEWS_URL, params, new ModelCallback<UserEntity>(false,UserEntity.class) {
+    public void infoRecommendList(HashMap<String, Object> params, final PresenterCallback<List<News>> callback) {
+        HttpRequestPresenter.getInstance().get(Constants.NEWS_URL, params, new ModelCallback<List<News>>(true) {
             @Override
             public void onErrorMsg(int code, String msg) {
                 callback.onErrorMsg(code,msg);
@@ -36,9 +56,11 @@ public class LoginModel implements LoginContract.ILoginModel {
 //                callback.onSuccess(news);
 //            }
 
+
             @Override
-            public void onSuccess(UserEntity userEntity) {
-                ToastUtils.showLong(userEntity.mobile+"");
+            public void onSuccess(List<News> news) {
+                callback.onSuccess(news);
+                ToastUtils.showLong(news.size()+"");
             }
 
             @Override
@@ -51,5 +73,25 @@ public class LoginModel implements LoginContract.ILoginModel {
 
 
         });
+    }
+
+    @Override
+    public void login(HashMap<String, Object> params, PresenterCallback<UserEntity> callback) {
+            HttpRequestPresenter.getInstance().post(Constants.LOGIN_URL, params, new ModelCallback<UserEntity>(false,UserEntity.class) {
+                @Override
+                public void onErrorMsg(int code, String msg) {
+
+                }
+
+                @Override
+                public void onSuccess(UserEntity userEntity) {
+                    ToastUtils.showLong(userEntity.phone);
+                }
+
+                @Override
+                public void onSuccessMsg(String status, String message) {
+
+                }
+            });
     }
 }

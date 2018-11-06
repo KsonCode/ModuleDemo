@@ -120,7 +120,7 @@ public class OkhttpHelper {
 
         HeaderInterceptor commonInterceptor = new HeaderInterceptor.Builder()
                 .addHeaderParams("ak", "0110010010000")
-                .addHeaderParams("sessionId", SPUtils.getInstance().getString("sessionId",""))
+                .addHeaderParams("sessionId", SPUtils.getInstance().getString("sessionId","18"))
                 .addHeaderParams("userId", SPUtils.getInstance().getString("userId",""))
                 .addHeaderParams("Content-Type", "application/x-www-form-urlencoded")
                 .build();
