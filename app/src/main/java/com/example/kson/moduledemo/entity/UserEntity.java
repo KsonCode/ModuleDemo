@@ -10,6 +10,12 @@ import com.example.kson.lib_net.network.BaseResponse;
  */
 public class UserEntity extends BaseResponse {
 
-public String phone;
+//    public String phone;
+//    public String nickName;
+//    public String pwd;
+//    public String sessionId;
+//    public String userId;
+//    public String userName;
+//    public String whetherV;
 
 }

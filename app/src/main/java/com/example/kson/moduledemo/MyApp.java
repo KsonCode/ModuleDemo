@@ -1,6 +1,8 @@
 package com.example.kson.moduledemo;
 
 import android.app.Application;
+import android.content.Context;
+import android.support.multidex.MultiDex;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.kson.lib_net.NetApp;
@@ -28,5 +30,11 @@ public class MyApp extends Application {
         NetApp.init(this, Constants.BASE_URL);
         HttpRequestPresenter.init(new RetrofitHttpRequest());
 //        HttpRequestPresenter.init(new RetrofitHttpRequest());
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
     }
 }

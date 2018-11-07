@@ -9,10 +9,12 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/easeui" />
             <option value="$PROJECT_DIR$/lib-core" />
             <option value="$PROJECT_DIR$/lib-dao" />
             <option value="$PROJECT_DIR$/lib-net" />
             <option value="$PROJECT_DIR$/module-home" />
+            <option value="$PROJECT_DIR$/module-im" />
             <option value="$PROJECT_DIR$/module-push" />
           </set>
         </option>

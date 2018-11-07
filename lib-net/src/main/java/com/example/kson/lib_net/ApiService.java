@@ -12,8 +12,10 @@ import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.HeaderMap;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Part;
 import retrofit2.http.QueryMap;
 import retrofit2.http.Streaming;
 import retrofit2.http.Url;
@@ -38,4 +40,8 @@ public interface ApiService {
     @Streaming
     @GET
     Observable<ResponseBody> downLoadFile(@Url String fileUrl);
+
+    @POST
+    @Multipart
+    Observable<Response<String>> uploadFile(@Url String fileUrl);
 }

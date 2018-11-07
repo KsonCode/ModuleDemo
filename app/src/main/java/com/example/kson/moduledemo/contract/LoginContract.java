@@ -5,6 +5,7 @@ import com.example.kson.lib_core.base.mvp.IBaseModel;
 import com.example.kson.lib_core.base.mvp.IBaseView;
 import com.example.kson.lib_net.network.PresenterCallback;
 import com.example.kson.lib_net.network.BaseResponse;
+import com.example.kson.moduledemo.entity.ContactsEntity;
 import com.example.kson.moduledemo.entity.News;
 import com.example.kson.moduledemo.entity.UserEntity;
 import com.example.kson.moduledemo.model.LoginModel;
@@ -30,6 +31,7 @@ public interface LoginContract {
         public abstract void login(HashMap<String,Object> params);
         public abstract void checkPhone(HashMap<String,Object> params);
         public abstract void infoRecommendList(HashMap<String,Object> params);
+        public abstract void reg(HashMap<String,Object> params);
 
     }
 
@@ -39,8 +41,9 @@ public interface LoginContract {
     interface ILoginModel extends IBaseModel {
 
         void checkPhone(HashMap<String,Object> params, PresenterCallback<UserEntity> callback);
-        void infoRecommendList(HashMap<String,Object> params, PresenterCallback<List<News>> callback);
+        void infoRecommendList(HashMap<String,Object> params, PresenterCallback<List<ContactsEntity>> callback);
         void login(HashMap<String,Object> params, PresenterCallback<UserEntity> callback);
+        void reg(HashMap<String,Object> params, PresenterCallback<UserEntity> callback);
 
     }
 

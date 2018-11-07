@@ -3,9 +3,19 @@ ext {
     //false 集成模式
     isModule = false
 
+    android = [
+            compileSdkVersion: 27,
+            applicationId    : "com.example.kson.moduledemo",
+            minSdkVersion    : 16,
+            targetSdkVersion : 27,
+            versionCode      : 1,
+            versionName      : "1.0.0"
+            ]
+
     appId = ["app"        : "com.example.kson.moduledemo",
              "module-home": "com.example.kson.module_home",
-             "module-push": "com.example.kson.module_push"
+             "module-push": "com.example.kson.module_push",
+             "module-im": "com.example.kson.module_im"
     ]
 
     def dependVersion = [

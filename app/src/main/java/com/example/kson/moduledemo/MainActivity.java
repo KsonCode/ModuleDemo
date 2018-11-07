@@ -7,11 +7,6 @@ import android.widget.Button;
 
 import com.example.kson.lib_core.base.mvp.BaseMvpActivity;
 import com.example.kson.lib_core.base.mvp.BasePresenter;
-import com.example.kson.lib_core.utils.ToastUtils;
-import com.example.kson.lib_net.network.BaseResponse;
-import com.example.kson.lib_net.network.http.HttpRequestPresenter;
-import com.example.kson.lib_net.network.http.ModelCallback;
-import com.example.kson.lib_net.network.rx.RxManager;
 import com.example.kson.lib_net.utils.publickeytool.RsaCoder;
 import com.example.kson.moduledemo.contract.LoginContract;
 import com.example.kson.moduledemo.entity.UserEntity;
@@ -32,18 +27,19 @@ public class MainActivity extends BaseMvpActivity<LoginContract.ILoginModel, Log
             public void onClick(View view) {
 
                 HashMap<String, Object> params = new HashMap<>();
-//                params.put("mobile","18612991023");
+                params.put("uid","71");
 //                params.put("password","222222");
-                params.put("phone", "18612991023");
-                params.put("pwd", RsaCoder.encryptByPublicKey("111111"));
 //                params.put("phone", "18612991523");
-                params.put("plateId", "12");
-                params.put("page", "1");
-                params.put("count", "5");
+//                params.put("nickName", "18612991523");
 //                params.put("pwd", RsaCoder.encryptByPublicKey("111111"));
-
-                presenter.checkPhone(params);
-
+////                params.put("phone", "18612991523");
+//                params.put("plateId", "12");
+//                params.put("page", "1");
+//                params.put("count", "5");
+////                params.put("pwd", RsaCoder.encryptByPublicKey("111111"));
+//
+//                showToast("121212121212121");
+                presenter.infoRecommendList(params);
 
             }
         });
@@ -61,10 +57,6 @@ public class MainActivity extends BaseMvpActivity<LoginContract.ILoginModel, Log
 
     }
 
-    @Override
-    public void success(BaseResponse<UserEntity> userEntity) {
-//        com.blankj.utilcode.util.ToastUtils.showLong(userEntity.getMessage());
-    }
 
     @Override
     public BasePresenter initPresenter() {

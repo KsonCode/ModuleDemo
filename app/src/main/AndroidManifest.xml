@@ -19,10 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.example.kson.module_home.Main2Activity"/>
+        <activity android:name="com.example.kson.module_im.Main2Activity"/>
         <activity android:name="com.example.kson.module_push.PushActivity"/>
-        <activity android:name=".Main2Activity">
-        </activity>
     </application>
 
 </manifest>

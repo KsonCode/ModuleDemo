@@ -120,9 +120,9 @@ public class OkhttpHelper {
 
         HeaderInterceptor commonInterceptor = new HeaderInterceptor.Builder()
                 .addHeaderParams("ak", "0110010010000")
-                .addHeaderParams("sessionId", SPUtils.getInstance().getString("sessionId","18"))
-                .addHeaderParams("userId", SPUtils.getInstance().getString("userId",""))
-                .addHeaderParams("Content-Type", "application/x-www-form-urlencoded")
+        .addHeaderParams("sessionId", SPUtils.getInstance().getString("sessionId","154159234203439"))
+                .addHeaderParams("userId", SPUtils.getInstance().getString("userId","39"))
+//                .addHeaderParams("Content-Type", "application/x-www-form-urlencoded")
                 .build();
 
         String md5= GetMD5.getFileInputMD5(NetApp.getAppContext().getResources().openRawResource(R.raw.server));
