@@ -50,10 +50,10 @@ public abstract class ModelCallback<T> implements ICallback {
 
     public static <T> BaseResponse<List<T>> fromJsonArray(String reader, Class<T> clazz) {
         String result = "";
-        if (reader.contains("data")) {
+        if (reader.contains("result")) {
             result = reader;
         } else {
-            result = reader.substring(0, reader.length() - 1) + ",\"data\":[]}";
+            result = reader.substring(0, reader.length() - 1) + ",\"result\":[]}";
         }
 
         // 生成List<T> 中的 List<T>
