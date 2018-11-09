@@ -1,5 +1,8 @@
 package com.example.kson.lib_core.utils;
 
+/**
+ * 路由路径
+ */
 public class APath {
 
     //
@@ -21,7 +24,7 @@ public class APath {
 
 
 
-    public static final String WALLET_MAIN = "/wallet/main";
+    public static final String PUSH_MAIN = "/push/push";
 
 
 

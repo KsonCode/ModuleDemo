@@ -14,7 +14,7 @@ public class NetConstants
     public static final int EXPIRED_TOKEN = 1001;
 
     //================= PATH ====================
-    public static final String PATH_DATA = NetApp.getAppContext().getCacheDir().getAbsolutePath() + File.separator +
+    public static final String PATH_DATA = NetApp.getAppContext().getExternalCacheDir().getAbsolutePath() + File.separator +
             "data";
     public static final String PATH_CACHE = PATH_DATA + File.separator + "NetCache";
 

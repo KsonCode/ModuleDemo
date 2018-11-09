@@ -5,6 +5,7 @@ import java.util.Map;
 
 import io.reactivex.Observable;
 import okhttp3.ResponseBody;
+import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
@@ -44,4 +45,8 @@ public interface ApiService {
     @POST
     @Multipart
     Observable<Response<String>> uploadFile(@Url String fileUrl);
+
+    @POST
+    @Multipart
+    Call<ResponseBody> test(@Url String fileUrl);
 }

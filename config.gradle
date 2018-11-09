@@ -1,7 +1,7 @@
 ext {
     //true 组件化模式
     //false 集成模式
-    isModule = false
+    isModule = true
 
     android = [
             compileSdkVersion: 27,
@@ -15,7 +15,8 @@ ext {
     appId = ["app"        : "com.example.kson.moduledemo",
              "module-home": "com.example.kson.module_home",
              "module-push": "com.example.kson.module_push",
-             "module-im": "com.example.kson.module_im"
+             "module-im": "com.example.kson.module_im",
+             "module-video": "com.example.kson.module_video",
     ]
 
     def dependVersion = [

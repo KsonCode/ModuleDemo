@@ -21,8 +21,8 @@ public class RetrofitHttpRequest implements HttpRequest {
     private static String ANDROID_VERSION = "Android_0.0.2";
     private ApiService apiService;
 
-    public RetrofitHttpRequest() {
-        apiService = RetrofitHelper.createService(ApiService.class, false);
+    public RetrofitHttpRequest(boolean iscache) {
+        apiService = RetrofitHelper.createService(ApiService.class, iscache);
     }
 
     //获取当前的系统语言

@@ -11,7 +11,7 @@ android {
         multiDexEnabled true
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [ AROUTER_MODULE_NAME : project.getName() ]
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
             }
         }
 
@@ -35,6 +35,7 @@ dependencies {
     api rootProject.ext.dependencies["appcompat-v7"]
     api rootProject.ext.dependencies["multidex"]
     api rootProject.ext.dependencies["arouter"]
+
     if (!isModule) {
         implementation project(':module-home')
         implementation project(':module-push')

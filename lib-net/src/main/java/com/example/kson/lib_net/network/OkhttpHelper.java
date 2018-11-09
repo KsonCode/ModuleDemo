@@ -109,6 +109,7 @@ public class OkhttpHelper {
             builder.addInterceptor(new StethoInterceptor());
             //http拦截器
             builder.addInterceptor(chuckInterceptor);
+
         }
         File cacheFile = new File(NetConstants.PATH_CACHE);
         //最大50M，
@@ -150,6 +151,7 @@ public class OkhttpHelper {
         }catch (Exception e){
             LogUtils.e("SSL设置错误");
         }
+
 
         //下面3个超时,不设置默认就是10s
         builder.addInterceptor(commonInterceptor)
