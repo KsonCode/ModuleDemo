@@ -1,15 +1,15 @@
 ext {
     //true 组件化模式
     //false 集成模式
-    isModule = true
+    isModule = false
 
     android = [
             compileSdkVersion: 27,
             applicationId    : "com.example.kson.moduledemo",
             minSdkVersion    : 16,
-            targetSdkVersion : 27,
-            versionCode      : 1,
-            versionName      : "1.0.0"
+            targetSdkVersion : 22,
+            versionCode      : 101,
+            versionName      : "1.0.1"
             ]
 
     appId = ["app"        : "com.example.kson.moduledemo",

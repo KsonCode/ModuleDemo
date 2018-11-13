@@ -2,15 +2,15 @@ package com.example.kson.moduledemo.application;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.support.multidex.MultiDex;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.alipay.euler.andfix.AndFixManager;
-import com.example.kson.lib_core.hotfix.AndFixPatchManager;
+import com.example.andfix.AndFixPatchManager;
+import com.example.andfix.AndFixService;
 import com.example.kson.lib_net.NetApp;
 import com.example.kson.lib_net.network.http.HttpRequestPresenter;
 import com.example.kson.lib_net.network.http.RetrofitHttpRequest;
-import com.example.kson.lib_net.network.rx.RxManager;
 import com.example.kson.moduledemo.common.Constants;
 
 /**
@@ -31,7 +31,11 @@ public class MyApp extends Application {
         ARouter.init(this);
         NetApp.init(this, Constants.BASE_URL);
         HttpRequestPresenter.init(new RetrofitHttpRequest(true));
-        AndFixPatchManager.getmInstance().initPatch(this);//初始化andfix
+        AndFixPatchManager.getInstance().initPatch(this);
+
+        startService(new Intent(this, AndFixService.class));
+
+
     }
 
     @Override

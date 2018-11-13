@@ -42,6 +42,11 @@ public interface ApiService {
     @GET
     Observable<ResponseBody> downLoadFile(@Url String fileUrl);
 
+    /**
+     * 上传文件
+     * @param fileUrl
+     * @return
+     */
     @POST
     @Multipart
     Observable<Response<String>> uploadFile(@Url String fileUrl);

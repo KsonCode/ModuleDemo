@@ -19,3 +19,8 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+#andfix修复
+-keep class * extends java.lang.annotation.Annotation
+-keepclasseswithmembernames class * {
+    native <methods>;
+}

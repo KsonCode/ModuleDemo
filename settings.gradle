@@ -1,1 +1,1 @@
-include ':app', ':lib-core', ':lib-net', ':lib-dao', ':module-home', ':module-push',':easeui', ':module-im', ':module-video'
+include ':app', ':lib-core', ':lib-net', ':lib-dao', ':module-home', ':module-push',':easeui', ':module-im', ':module-video', ':andfix'

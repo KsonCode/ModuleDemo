@@ -41,7 +41,7 @@ import io.reactivex.disposables.Disposable;
 
 public abstract class BaseActivity extends AppCompatActivity implements NavigationCallback,  NetBroadcastReceiver.NetChangeListener{
     private static Disposable disposable;
-    public Toolbar toolbar;
+//    public Toolbar toolbar;
     public boolean isBack;
     protected BGASwipeBackHelper mSwipeBackHelper;
     private boolean isFullScreen = false;//是否全屏
@@ -118,25 +118,25 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
     }
 
 
-    public BaseActivity initToolBarAsHome(String title, boolean flag, boolean isBack) {
-        this.isBack = isBack;
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-
-        if (toolbar != null) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && flag) {
-                toolbar.setElevation(9.0f);
-            }
-            setSupportActionBar(toolbar);
-            TextView toolbaTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
-            toolbaTitle.setText(title);
-        }
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(false);
-            actionBar.setDisplayShowTitleEnabled(false);
-        }
-        return this;
-    }
+//    public BaseActivity initToolBarAsHome(String title, boolean flag, boolean isBack) {
+//        this.isBack = isBack;
+//        toolbar = (Toolbar) findViewById(R.id.toolbar);
+//
+//        if (toolbar != null) {
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && flag) {
+//                toolbar.setElevation(9.0f);
+//            }
+//            setSupportActionBar(toolbar);
+//            TextView toolbaTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
+//            toolbaTitle.setText(title);
+//        }
+//        ActionBar actionBar = getSupportActionBar();
+//        if (actionBar != null) {
+//            actionBar.setDisplayHomeAsUpEnabled(false);
+//            actionBar.setDisplayShowTitleEnabled(false);
+//        }
+//        return this;
+//    }
 
     /**
      * 初始化滑动返回。在 super.onCreate(savedInstanceState) 之前调用该方法
@@ -237,96 +237,96 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
     }
 
 
-    public BaseActivity showLeftBack() {
-        TextView tv = ((TextView) toolbar.findViewById(R.id.tv_LeftBack));
-        tv.setVisibility(View.VISIBLE);
-        tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickBack();
-            }
-        });
-        return this;
-    }
+//    public BaseActivity showLeftBack() {
+//        TextView tv = ((TextView) toolbar.findViewById(R.id.tv_LeftBack));
+//        tv.setVisibility(View.VISIBLE);
+//        tv.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                clickBack();
+//            }
+//        });
+//        return this;
+//    }
 
-    public BaseActivity showRightText(String text) {
-        final TextView tv = ((TextView) toolbar.findViewById(R.id.tv_RightText));
-        tv.setVisibility(View.VISIBLE);
-        tv.setText(text);
-        tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickRightText(tv);
-            }
-        });
-        return this;
-    }
+//    public BaseActivity showRightText(String text) {
+//        final TextView tv = ((TextView) toolbar.findViewById(R.id.tv_RightText));
+//        tv.setVisibility(View.VISIBLE);
+//        tv.setText(text);
+//        tv.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                clickRightText(tv);
+//            }
+//        });
+//        return this;
+//    }
 
-    public BaseActivity hideRightText(String text) {
-        final TextView tv = ((TextView) toolbar.findViewById(R.id.tv_RightText));
-        tv.setVisibility(View.VISIBLE);
-        tv.setText(text);
-        tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickRightText(tv);
-            }
-        });
-        return this;
-    }
+//    public BaseActivity hideRightText(String text) {
+//        final TextView tv = ((TextView) toolbar.findViewById(R.id.tv_RightText));
+//        tv.setVisibility(View.VISIBLE);
+//        tv.setText(text);
+//        tv.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                clickRightText(tv);
+//            }
+//        });
+//        return this;
+//    }
 
-    public BaseActivity showRightText(String text, int color) {
-        final TextView tv = ((TextView) toolbar.findViewById(R.id.tv_RightText));
-        tv.setVisibility(View.VISIBLE);
-        tv.setTextColor(getResources().getColor(color));
-        tv.setText(text);
-        tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickRightText(tv);
-            }
-        });
-        return this;
-    }
+//    public BaseActivity showRightText(String text, int color) {
+//        final TextView tv = ((TextView) toolbar.findViewById(R.id.tv_RightText));
+//        tv.setVisibility(View.VISIBLE);
+//        tv.setTextColor(getResources().getColor(color));
+//        tv.setText(text);
+//        tv.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                clickRightText(tv);
+//            }
+//        });
+//        return this;
+//    }
 
-    public BaseActivity showLeftImg1(int img) {
-        ImageView tv = ((ImageView) toolbar.findViewById(R.id.tv_LeftImag1));
-        tv.setVisibility(View.VISIBLE);
-        tv.setImageResource(img);
-        tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickLeftImg();
-            }
-        });
-        return this;
-    }
+//    public BaseActivity showLeftImg1(int img) {
+//        ImageView tv = ((ImageView) toolbar.findViewById(R.id.tv_LeftImag1));
+//        tv.setVisibility(View.VISIBLE);
+//        tv.setImageResource(img);
+//        tv.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                clickLeftImg();
+//            }
+//        });
+//        return this;
+//    }
 
-    public BaseActivity showRightImg1(int img) {
-        ImageView tv = ((ImageView) toolbar.findViewById(R.id.tv_RightImg1));
-        tv.setVisibility(View.VISIBLE);
-        tv.setImageResource(img);
-        tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickRightImg();
-            }
-        });
-        return this;
-    }
+//    public BaseActivity showRightImg1(int img) {
+//        ImageView tv = ((ImageView) toolbar.findViewById(R.id.tv_RightImg1));
+//        tv.setVisibility(View.VISIBLE);
+//        tv.setImageResource(img);
+//        tv.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                clickRightImg();
+//            }
+//        });
+//        return this;
+//    }
 
-    public BaseActivity showRightImg2(int img) {
-        ImageView tv = ((ImageView) toolbar.findViewById(R.id.tv_RightImg2));
-        tv.setVisibility(View.VISIBLE);
-        tv.setImageResource(img);
-        tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickRightImg2();
-            }
-        });
-        return this;
-    }
+//    public BaseActivity showRightImg2(int img) {
+//        ImageView tv = ((ImageView) toolbar.findViewById(R.id.tv_RightImg2));
+//        tv.setVisibility(View.VISIBLE);
+//        tv.setImageResource(img);
+//        tv.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                clickRightImg2();
+//            }
+//        });
+//        return this;
+//    }
 
     public void clickRightImg() {
     }

@@ -30,7 +30,7 @@ import butterknife.Unbinder;
 public abstract class BaseFragment extends Fragment {
 
     protected Unbinder mUnbinder;
-    Toolbar toolbar;
+//    Toolbar toolbar;
 
     @Override
     public void onAttach(Context context) {
@@ -70,109 +70,109 @@ public abstract class BaseFragment extends Fragment {
     }
 
 
-    public BaseFragment initToolBarAsHome(String title, View view) {
-        toolbar = (Toolbar) view.findViewById(R.id.toolbar);
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        if (toolbar != null) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                toolbar.setElevation(9.0f);
-            }
-            activity.setSupportActionBar(toolbar);
-            TextView toolbaTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
-            toolbaTitle.setText(title);
-        }
-        ActionBar actionBar = activity.getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(false);
-            actionBar.setDisplayShowTitleEnabled(false);
-        }
-        return this;
-    }
+//    public BaseFragment initToolBarAsHome(String title, View view) {
+//        toolbar = (Toolbar) view.findViewById(R.id.toolbar);
+//        AppCompatActivity activity = (AppCompatActivity) getActivity();
+//        if (toolbar != null) {
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                toolbar.setElevation(9.0f);
+//            }
+//            activity.setSupportActionBar(toolbar);
+//            TextView toolbaTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
+//            toolbaTitle.setText(title);
+//        }
+//        ActionBar actionBar = activity.getSupportActionBar();
+//        if (actionBar != null) {
+//            actionBar.setDisplayHomeAsUpEnabled(false);
+//            actionBar.setDisplayShowTitleEnabled(false);
+//        }
+//        return this;
+//    }
 
-    public BaseFragment showTitleLeftImg() {
-        ImageView im = ((ImageView) toolbar.findViewById(R.id.title_left_img));
-        im.setVisibility(View.VISIBLE);
-        return this;
-    }
+//    public BaseFragment showTitleLeftImg() {
+//        ImageView im = ((ImageView) toolbar.findViewById(R.id.title_left_img));
+//        im.setVisibility(View.VISIBLE);
+//        return this;
+//    }
 
-    public BaseFragment showRightText(String text) {
-        final TextView tv = ((TextView) toolbar.findViewById(R.id.tv_RightText));
-        tv.setVisibility(View.VISIBLE);
-        tv.setText(text);
-        tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickRightText(tv);
-            }
-        });
-        return this;
-    }
+//    public BaseFragment showRightText(String text) {
+//        final TextView tv = ((TextView) toolbar.findViewById(R.id.tv_RightText));
+//        tv.setVisibility(View.VISIBLE);
+//        tv.setText(text);
+//        tv.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                clickRightText(tv);
+//            }
+//        });
+//        return this;
+//    }
 
-    public BaseFragment hideRightText(String text) {
-        final TextView tv = ((TextView) toolbar.findViewById(R.id.tv_RightText));
-        tv.setVisibility(View.VISIBLE);
-        tv.setText(text);
-        tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickRightText(tv);
-            }
-        });
-        return this;
-    }
+//    public BaseFragment hideRightText(String text) {
+//        final TextView tv = ((TextView) toolbar.findViewById(R.id.tv_RightText));
+//        tv.setVisibility(View.VISIBLE);
+//        tv.setText(text);
+//        tv.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                clickRightText(tv);
+//            }
+//        });
+//        return this;
+//    }
 
-    public BaseFragment showRightText(String text, int color) {
-        final TextView tv = ((TextView) toolbar.findViewById(R.id.tv_RightText));
-        tv.setVisibility(View.VISIBLE);
-        tv.setTextColor(getResources().getColor(color));
-        tv.setText(text);
-        tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickRightText(tv);
-            }
-        });
-        return this;
-    }
+//    public BaseFragment showRightText(String text, int color) {
+//        final TextView tv = ((TextView) toolbar.findViewById(R.id.tv_RightText));
+//        tv.setVisibility(View.VISIBLE);
+//        tv.setTextColor(getResources().getColor(color));
+//        tv.setText(text);
+//        tv.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                clickRightText(tv);
+//            }
+//        });
+//        return this;
+//    }
 
-    public BaseFragment showLeftImg1(int img) {
-        ImageView tv = ((ImageView) toolbar.findViewById(R.id.tv_LeftImag1));
-        tv.setVisibility(View.VISIBLE);
-        tv.setImageResource(img);
-        tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickLeftImg();
-            }
-        });
-        return this;
-    }
+//    public BaseFragment showLeftImg1(int img) {
+//        ImageView tv = ((ImageView) toolbar.findViewById(R.id.tv_LeftImag1));
+//        tv.setVisibility(View.VISIBLE);
+//        tv.setImageResource(img);
+//        tv.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                clickLeftImg();
+//            }
+//        });
+//        return this;
+//    }
 
-    public BaseFragment showRightImg1(int img) {
-        ImageView im = ((ImageView) toolbar.findViewById(R.id.tv_RightImg1));
-        im.setVisibility(View.VISIBLE);
-        im.setImageResource(img);
-        im.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickRightImg1();
-            }
-        });
-        return this;
-    }
+//    public BaseFragment showRightImg1(int img) {
+//        ImageView im = ((ImageView) toolbar.findViewById(R.id.tv_RightImg1));
+//        im.setVisibility(View.VISIBLE);
+//        im.setImageResource(img);
+//        im.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                clickRightImg1();
+//            }
+//        });
+//        return this;
+//    }
 
-    public BaseFragment showRightImg2(int img) {
-        ImageView im = ((ImageView) toolbar.findViewById(R.id.tv_RightImg2));
-        im.setVisibility(View.VISIBLE);
-        im.setImageResource(img);
-        im.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickRightImg2(v);
-            }
-        });
-        return this;
-    }
+//    public BaseFragment showRightImg2(int img) {
+//        ImageView im = ((ImageView) toolbar.findViewById(R.id.tv_RightImg2));
+//        im.setVisibility(View.VISIBLE);
+//        im.setImageResource(img);
+//        im.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                clickRightImg2(v);
+//            }
+//        });
+//        return this;
+//    }
 
     public void clickRightImg1() {
     }
@@ -239,4 +239,6 @@ public abstract class BaseFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
     }
+
+
 }

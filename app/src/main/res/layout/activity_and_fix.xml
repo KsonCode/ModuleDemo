@@ -9,6 +9,7 @@
     tools:context=".activity.AndFixActivity">
 
     <Button
+        android:id="@+id/createBug"
         android:text="制造bug"
         android:onClick="createBug"
         android:layout_width="match_parent"

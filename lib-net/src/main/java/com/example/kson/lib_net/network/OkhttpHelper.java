@@ -129,9 +129,9 @@ public class OkhttpHelper {
         String md5= GetMD5.getFileInputMD5(NetApp.getAppContext().getResources().openRawResource(R.raw.server));
         assert md5 != null;
         LogUtils.e(md5);
-        if (md5 != null && (!("34c59ea4ea973913bb4685192f1730b5".equals(md5) ))) {
-            throw new IllegalStateException("KEY ERROR");
-        }
+//        if (md5 != null && (!("34c59ea4ea973913bb4685192f1730b5".equals(md5) ))) {
+//            throw new IllegalStateException("KEY ERROR");
+//        }
         try {
             KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
             keyStore.load(null);

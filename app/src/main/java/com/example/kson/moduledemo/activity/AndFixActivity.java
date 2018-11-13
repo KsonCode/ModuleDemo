@@ -1,63 +1,68 @@
 package com.example.kson.moduledemo.activity;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 
-import com.example.kson.lib_core.hotfix.AndFixPatchManager;
+import com.blankj.utilcode.util.ToastUtils;
+import com.example.andfix.AndFixService;
 import com.example.kson.moduledemo.R;
-
-import java.io.File;
 
 public class AndFixActivity extends AppCompatActivity {
 
-    private  final String FIELD_END = ".apatch";
-    private String mPatchDir;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_and_fix);
-        mPatchDir = getExternalCacheDir().getAbsolutePath()+"/apatch/";
-        File file = new File(mPatchDir);
-        if (!file.exists()){
-            file.mkdirs();
-        }
+
+        Button button = findViewById(R.id.createBug);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                printLog();
+            }
+        });
     }
 
-    /**
-     * 制造bug
-     * @param view
-     */
-    public void createBug(View view) {
-
-
-        printLog();
-    }
 
     /**
      * 模拟错误
      */
     private void printLog() {
-        String error = null;
-        Log.e("kson",error);
+        String error = "修复的bug";
+//        String error = null;
+        ToastUtils.showShort(error + "");
+//        Log.e("kson",error);
     }
 
     /**
      * 修复bug
+     *
      * @param view
      */
     public void fixBug(View view) {
 
-        AndFixPatchManager.getmInstance().addPatch(getPatchPath());
+//        String mPatchFileDir = Environment.getExternalStorageDirectory().getAbsolutePath() + "/apatch/";
+//        LogUtils.e("patchDir:",mPatchFileDir);
+//        File patchDir = new File(mPatchFileDir);
+//
+//        try {
+//            if (patchDir == null || !patchDir.exists()) {
+//                patchDir.mkdirs();
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        String mPatchFile = mPatchFileDir.concat("n").
+//                concat(".apatch");
+//
+//        LogUtils.e("path:"+mPatchFile);
+
+//        AndFixPatchManager.getInstance().addPatch(mPatchFile);
+
     }
 
-    /**
-     * 获取patch文件路径
-     * @return
-     */
-    private String getPatchPath() {
-
-        return mPatchDir.concat("im").concat(FIELD_END);
-    }
 }
