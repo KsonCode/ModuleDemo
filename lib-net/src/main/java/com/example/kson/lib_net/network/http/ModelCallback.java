@@ -34,18 +34,14 @@ public abstract class ModelCallback<T> implements ICallback {
     }
 
     public static <T> BaseResponse<T> fromJsonObject(String reader, Class<T> clazz) {
-
         String result = "";
         if (reader.contains("result")) {
             result = reader;
         } else {
             result = reader.substring(0, reader.length() - 1) + ",\"result\":{}}";
         }
-
         Type type = new ParameterizedTypeImpl(BaseResponse.class, new Class[]{clazz});
-
         return new Gson().fromJson(result, type);
-
     }
 
     public static <T> BaseResponse<List<T>> fromJsonArray(String reader, Class<T> clazz) {

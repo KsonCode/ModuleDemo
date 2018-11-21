@@ -1,5 +1,6 @@
 package com.example.andfix;
 
+import android.app.IntentService;
 import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
@@ -20,7 +21,7 @@ import com.example.kson.lib_net.network.http.ModelCallback;
 import java.io.File;
 import java.util.HashMap;
 
-public class AndFixService extends Service {
+public class AndFixService extends IntentService {
     private static final String TAG = AndFixService.class.getSimpleName();
     private static final String FILE_END = ".apatch";
     private static final int UPDATE_PATCH = 0x02;
@@ -45,10 +46,24 @@ public class AndFixService extends Service {
         }
     };
 
+    /**
+     * Creates an IntentService.  Invoked by your subclass's constructor.
+     *
+     * @param name Used to name the worker thread, important only for debugging.
+     */
+    public AndFixService(String name) {
+        super(name);
+    }
+
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
         return null;
+    }
+
+    @Override
+    protected void onHandleIntent(Intent intent) {
+        mHandler.sendEmptyMessage(UPDATE_PATCH);
     }
 
 
@@ -58,11 +73,11 @@ public class AndFixService extends Service {
         init();
     }
 
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        mHandler.sendEmptyMessage(UPDATE_PATCH);
-        return START_NOT_STICKY;
-    }
+//    @Override
+//    public int onStartCommand(Intent intent, int flags, int startId) {
+//        mHandler.sendEmptyMessage(UPDATE_PATCH);
+//        return START_NOT_STICKY;
+//    }
 
     //完成文件目录的构造
     private void init() {
@@ -73,7 +88,7 @@ public class AndFixService extends Service {
 
         try {
             if (patchDir == null || !patchDir.exists()) {
-                patchDir.mkdir();
+                patchDir.mkdirs();
             }
         } catch (Exception e) {
             e.printStackTrace();

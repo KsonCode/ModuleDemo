@@ -47,7 +47,7 @@ public class LoginModel implements LoginContract.ILoginModel {
 
     @Override
     public void infoRecommendList(HashMap<String, Object> params, final PresenterCallback<List<ContactsEntity>> callback) {
-        HttpRequestPresenter.getInstance().get(Constants.NEWS_URL, params,
+        HttpRequestPresenter.getInstance().post(Constants.NEWS_URL, params,
                 new ModelCallback<List<ContactsEntity>>(true,ContactsEntity.class) {
             @Override
             public void onErrorMsg(int code, String msg) {

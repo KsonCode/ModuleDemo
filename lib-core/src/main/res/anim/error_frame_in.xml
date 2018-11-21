@@ -10,7 +10,7 @@
         android:toAlpha="1"
         android:duration="400"/>
 
-    <sweet:com.beechain.beepay.core.widget.SweetAlert.Rotate3dAnimation
+    <sweet:com.example.kson.lib_core.widget.SweetAlert.Rotate3dAnimation
         sweet:rollType="x"
         sweet:fromDeg="100"
         sweet:toDeg="0"

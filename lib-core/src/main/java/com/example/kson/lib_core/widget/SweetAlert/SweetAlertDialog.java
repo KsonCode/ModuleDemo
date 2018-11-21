@@ -74,9 +74,9 @@ public class SweetAlertDialog extends Dialog implements View.OnClickListener,Dia
     @Override
     public void onDismiss(DialogInterface dialog) {
         if (ScreenUtils.isPortrait()) {
-            ScreenUtils.adaptScreen4VerticalSlide(context, 750);
+            ScreenUtils.adaptScreen4VerticalSlide(context, 360);
         } else {
-            ScreenUtils.adaptScreen4HorizontalSlide(context, 750);
+            ScreenUtils.adaptScreen4HorizontalSlide(context, 360);
         }
     }
 

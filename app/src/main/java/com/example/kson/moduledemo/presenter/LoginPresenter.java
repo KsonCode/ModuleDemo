@@ -1,7 +1,13 @@
 package com.example.kson.moduledemo.presenter;
 
+import android.view.View;
+
 import com.blankj.utilcode.util.ToastUtils;
+import com.example.kson.lib_core.widget.SweetAlert.SweetAlertDialog;
+import com.example.kson.lib_core.widget.dialog.DialogUtils;
 import com.example.kson.lib_net.network.PresenterCallback;
+import com.example.kson.lib_net.network.rx.download.DownloadEntity;
+import com.example.kson.moduledemo.R;
 import com.example.kson.moduledemo.contract.LoginContract;
 import com.example.kson.moduledemo.entity.ContactsEntity;
 import com.example.kson.moduledemo.entity.News;
@@ -16,88 +22,92 @@ import java.util.List;
  * Time:2018/11/01
  * Description:
  */
-public class LoginPresenter extends LoginContract.LoginPresenter{
+public class LoginPresenter extends LoginContract.LoginPresenter {
+
+    SweetAlertDialog dialog;
+
     @Override
     public void infoRecommendList(HashMap<String, Object> params) {
-        mModel.infoRecommendList(params, new PresenterCallback<List<ContactsEntity>>() {
-            @Override
-            public void onSuccess(List<ContactsEntity> news) {
+
+            mModel.infoRecommendList(params, new PresenterCallback<List<ContactsEntity>>() {
+                @Override
+                public void onSuccess(List<ContactsEntity> news) {
 
 
-            }
+                }
 
-            @Override
-            public void onSuccessMsg(String status, String message) {
-                ToastUtils.showLong(message+"");
-            }
+                @Override
+                public void onSuccessMsg(String status, String message) {
+                    ToastUtils.showLong(message + "");
+                }
 
-            @Override
-            public void onErrorMsg(int code, String msg) {
+                @Override
+                public void onErrorMsg(int code, String msg) {
 
-            }
-        });
-    }
+                }
+            });
+        }
 
-    @Override
-    public void reg(HashMap<String, Object> params) {
-        mModel.reg(params, new PresenterCallback<UserEntity>() {
-            @Override
-            public void onSuccess(UserEntity userEntity) {
+        @Override
+        public void reg (HashMap < String, Object > params){
+            mModel.reg(params, new PresenterCallback<UserEntity>() {
+                @Override
+                public void onSuccess(UserEntity userEntity) {
 
-            }
+                }
 
-            @Override
-            public void onSuccessMsg(String status, String message) {
-                    ToastUtils.showShort(message+"");
-            }
+                @Override
+                public void onSuccessMsg(String status, String message) {
+                    ToastUtils.showShort(message + "");
+                }
 
-            @Override
-            public void onErrorMsg(int code, String msg) {
+                @Override
+                public void onErrorMsg(int code, String msg) {
 
-            }
-        });
-    }
+                }
+            });
+        }
 
-    @Override
-    public void login(HashMap<String, Object> params) {
-        mModel.login(params, new PresenterCallback<UserEntity>() {
-            @Override
-            public void onSuccess(UserEntity userEntity) {
+        @Override
+        public void login (HashMap < String, Object > params){
+            mModel.login(params, new PresenterCallback<UserEntity>() {
+                @Override
+                public void onSuccess(UserEntity userEntity) {
 
-            }
+                }
 
-            @Override
-            public void onSuccessMsg(String status, String message) {
+                @Override
+                public void onSuccessMsg(String status, String message) {
 
-            }
+                }
 
-            @Override
-            public void onErrorMsg(int code, String msg) {
+                @Override
+                public void onErrorMsg(int code, String msg) {
 
-            }
-        });
+                }
+            });
 
-    }
+        }
 
-    @Override
-    public void checkPhone(HashMap<String, Object> params) {
-        mModel.checkPhone(params, new PresenterCallback<UserEntity>() {
-            @Override
-            public void onSuccess(UserEntity userEntity) {
+        @Override
+        public void checkPhone (HashMap < String, Object > params){
+            mModel.checkPhone(params, new PresenterCallback<UserEntity>() {
+                @Override
+                public void onSuccess(UserEntity userEntity) {
 
-            }
+                }
 
-            @Override
-            public void onSuccessMsg(String status, String message) {
+                @Override
+                public void onSuccessMsg(String status, String message) {
 
-            }
+                }
 
-            @Override
-            public void onErrorMsg(int code, String msg) {
+                @Override
+                public void onErrorMsg(int code, String msg) {
 
-            }
-        });
-    }
+                }
+            });
+        }
 
 //    @Override
 //    protected void accepts(Object list, Object o) {
@@ -109,4 +119,4 @@ public class LoginPresenter extends LoginContract.LoginPresenter{
 //        }
 //
 //    }
-}
+    }

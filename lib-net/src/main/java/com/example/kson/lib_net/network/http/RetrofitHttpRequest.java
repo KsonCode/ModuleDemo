@@ -13,9 +13,11 @@ import com.example.kson.lib_net.utils.EncryBody;
 import com.example.kson.lib_net.utils.KeyHelper;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 
 import io.reactivex.disposables.Disposable;
+import okhttp3.MultipartBody;
 
 public class RetrofitHttpRequest implements HttpRequest {
     private static String ANDROID_VERSION = "Android_0.0.2";
@@ -42,12 +44,13 @@ public class RetrofitHttpRequest implements HttpRequest {
 //        params.put("text", "Android");
 //        String data = EncryBody.encryBody(params);
 //
-//        HashMap<String, String> Header = new HashMap<>();
-//        Header.put("pk", KeyHelper.getPrivateKey());
-//        Header.put("tk", KeyHelper.getHeadParams());
-//        Header.put("lang", getLocalLanguage());
-//        Header.put("ct", SPUtils.getInstance().getString("CT", "1"));
-        apiService.getData(url, params)
+        HashMap<String, String> Header = new HashMap<>();
+        Header.put("ak", "0110010010000");
+        Header.put("sessionId", "154159234203439");
+        Header.put("userId", SPUtils.getInstance().getString("userId","39"));
+//                .addHeaderParams("Content-Type", "application/x-www-form-urlencoded")
+
+        apiService.getData(Header,url, params)
                 .map(new HttpResultFunc())
                 .compose(RxSchedulers.<String>io_main())
                 .subscribe(new BaseObserver<String>() {
@@ -74,7 +77,44 @@ public class RetrofitHttpRequest implements HttpRequest {
 
     @Override
     public void get(String url, HashMap<String, Object> params, final ICallback callback) {
-        apiService.doGetData(url, params)
+
+        HashMap<String, String> Header = new HashMap<>();
+        Header.put("ak", "0110010010000");
+        Header.put("sessionId", "154159234203439");
+        Header.put("userId", SPUtils.getInstance().getString("userId","39"));
+//                .addHeaderParams("Content-Type", "application/x-www-form-urlencoded")
+
+        apiService.doGetData(Header,url, params)
+                .map(new HttpResultFunc())
+                .compose(RxSchedulers.<String>io_main())
+                .subscribe(new BaseObserver<String>() {
+
+                    @Override
+                    public void onError(int errorCode, String msg) {
+                        LogUtils.e("网络错误码：" + errorCode + "\n" + msg);
+
+                        callback.onErrorMsg(errorCode, msg);
+                    }
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(String dataBean) {
+                        callback.onNext(dataBean);
+                    }
+                });
+    }
+
+    @Override
+    public void uploadFile(String fileUrl, HashMap<String, String> content, List<MultipartBody.Part> parts, final ICallback callback) {
+        HashMap<String, String> Header = new HashMap<>();
+        Header.put("ak", "0110010010000");
+        Header.put("sessionId", "154241779942688");
+        Header.put("userId", SPUtils.getInstance().getString("userId","88"));
+        apiService.uploadFile(Header,fileUrl,content, parts)
                 .map(new HttpResultFunc())
                 .compose(RxSchedulers.<String>io_main())
                 .subscribe(new BaseObserver<String>() {

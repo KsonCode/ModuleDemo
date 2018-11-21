@@ -119,12 +119,12 @@ public class OkhttpHelper {
                     .cache(cache);
         }
 
-        HeaderInterceptor commonInterceptor = new HeaderInterceptor.Builder()
-                .addHeaderParams("ak", "0110010010000")
-        .addHeaderParams("sessionId", SPUtils.getInstance().getString("sessionId","154159234203439"))
-                .addHeaderParams("userId", SPUtils.getInstance().getString("userId","39"))
-//                .addHeaderParams("Content-Type", "application/x-www-form-urlencoded")
-                .build();
+//        HeaderInterceptor commonInterceptor = new HeaderInterceptor.Builder()
+//                .addHeaderParams("ak", "0110010010000")
+//        .addHeaderParams("sessionId", SPUtils.getInstance().getString("sessionId","154159234203439"))
+//                .addHeaderParams("userId", SPUtils.getInstance().getString("userId","39"))
+////                .addHeaderParams("Content-Type", "application/x-www-form-urlencoded")
+//                .build();
 
         String md5= GetMD5.getFileInputMD5(NetApp.getAppContext().getResources().openRawResource(R.raw.server));
         assert md5 != null;
@@ -154,9 +154,9 @@ public class OkhttpHelper {
 
 
         //下面3个超时,不设置默认就是10s
-        builder.addInterceptor(commonInterceptor)
+//        builder.addInterceptor(commonInterceptor)
 
-                .connectTimeout(CONNECT_TIME, TimeUnit.SECONDS)
+                builder.connectTimeout(CONNECT_TIME, TimeUnit.SECONDS)
                 .readTimeout(READ_TIME, TimeUnit.SECONDS)
                 .writeTimeout(WRITE_TIME, TimeUnit.SECONDS)
                 .addNetworkInterceptor(new LoggingInterceptor())
