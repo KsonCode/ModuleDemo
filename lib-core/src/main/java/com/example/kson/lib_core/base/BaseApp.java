@@ -1,6 +1,8 @@
-package com.example.kson.module_home;
+package com.example.kson.lib_core.base;
 
 import android.app.Application;
+import android.content.Context;
+import android.support.multidex.MultiDex;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 
@@ -10,7 +12,8 @@ import com.alibaba.android.arouter.launcher.ARouter;
  * Time:2018/10/30
  * Description:
  */
-public class MyApp extends Application {
+public class BaseApp extends Application {
+
 
     @Override
     public void onCreate() {
@@ -19,5 +22,13 @@ public class MyApp extends Application {
         ARouter.openLog(); // 打印日志
         ARouter.openDebug(); // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险) }
         ARouter.init(this);
+
+
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
     }
 }

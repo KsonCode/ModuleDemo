@@ -35,15 +35,16 @@ dependencies {
     api rootProject.ext.dependencies["appcompat-v7"]
     api rootProject.ext.dependencies["multidex"]
     api rootProject.ext.dependencies["arouter"]
-    //    if (!isModule) {
-    //        implementation project(':module-home')
-    //        implementation project(':module-push')
-    //
-    //    }
+    if (!isModule) {
+//            implementation project(':module-home')
+//            implementation project(':module-push')
+        implementation project(':module-home')
+    }
     api 'com.alipay.euler:andfix:0.5.0@aar'
     annotationProcessor rootProject.ext.dependencies["arouterCompile"]
     implementation project(':lib-core')
     implementation project(':andfix')
+
 }
 configurations.all {
     resolutionStrategy.eachDependency { DependencyResolveDetails details ->

@@ -8,11 +8,13 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ScreenUtils;
 import com.example.kson.lib_core.base.mvp.BaseMvpActivity;
 import com.example.kson.lib_core.base.mvp.BasePresenter;
+import com.example.kson.lib_core.utils.APath;
 import com.example.kson.lib_net.ApiService;
 import com.example.kson.lib_net.network.OkhttpHelper;
 import com.example.kson.lib_net.network.http.HttpRequestPresenter;
@@ -65,8 +67,8 @@ public class MainActivity extends BaseMvpActivity<LoginContract.ILoginModel, Log
             @Override
             public void onClick(View view) {
 
-                HashMap<String, Object> params = new HashMap<>();
-                params.put("uid","71");
+//                HashMap<String, Object> params = new HashMap<>();
+//                params.put("uid","71");
 //                params.put("password","222222");
 //                params.put("phone", "18612991523");
 //                params.put("nickName", "18612991523");
@@ -78,8 +80,11 @@ public class MainActivity extends BaseMvpActivity<LoginContract.ILoginModel, Log
 ////                params.put("pwd", RsaCoder.encryptByPublicKey("111111"));
 //
 //                showToast("121212121212121");
-                presenter.infoRecommendList(params);
+//                presenter.infoRecommendList(params);
 
+                ARouter.getInstance().build("/home/home2").navigation();
+
+//                ARouter.getInstance().build(APath.PUSH_MAIN).navigation();
 
             }
         });

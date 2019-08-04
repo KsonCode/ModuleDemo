@@ -28,7 +28,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.AndFixActivity"></activity>
+        <activity android:name=".activity.MainActivity"></activity>
+        <!--<activity android:name="com.example.kson.module_home.Main2Activity"></activity>-->
 
     </application>
 

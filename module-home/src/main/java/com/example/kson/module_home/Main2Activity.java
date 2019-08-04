@@ -17,6 +17,7 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main22);
         TextView push = findViewById(R.id.push1);
+        ARouter.getInstance().inject(this);
         push.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

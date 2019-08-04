@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.kson.lib_core.utils.APath;
 //import com.example.kson.lib_core.constants.Apath;
 
 /**
@@ -17,13 +19,14 @@ import com.alibaba.android.arouter.facade.annotation.Route;
  * Time:2018/10/30
  * Description:
  */
-//@Route(path = Apath.HOME_MAIN)
+@Route(path = APath.HOME_MAIN)
 public class HomeFragment extends Fragment{
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = View.inflate(getContext(), R.layout.frag_home, null);
+        ARouter.getInstance().inject(this);
         return view;
     }
 
