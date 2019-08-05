@@ -1,5 +1,6 @@
 package com.example.kson.lib_net.network.rx.exception;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.example.kson.lib_net.NetConstants;
 import com.facebook.stetho.common.LogUtil;
 import com.google.gson.JsonParseException;
@@ -30,6 +31,7 @@ import static com.example.kson.lib_net.network.rx.exception.ApiException.ERROR.U
 
 /**
  * <pre>
+ *     统一异常类管理类，自定异常
  * </pre>
  */
 public class ApiException extends Exception {
@@ -44,7 +46,7 @@ public class ApiException extends Exception {
 
     public static ApiException handlerException(Throwable throwable) {
         ApiException exception = null;
-        LogUtil.e("throwable=====" + throwable);
+        LogUtils.e("throwable=====" + throwable);
         if (throwable instanceof HttpException) {
             HttpException httpException = (HttpException) throwable;
             exception = new ApiException(httpException, httpException.code());

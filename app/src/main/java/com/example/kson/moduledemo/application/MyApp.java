@@ -29,11 +29,15 @@ public class MyApp extends Application {
         ARouter.openLog(); // 打印日志
         ARouter.openDebug(); // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险) }
         ARouter.init(this);
+        //网络层的初始化
         NetApp.init(this, Constants.BASE_URL);
+        //网络请求框架的初始化
         HttpRequestPresenter.init(new RetrofitHttpRequest(true));
-        AndFixPatchManager.getInstance().initPatch(this);
 
-        startService(new Intent(this, AndFixService.class));
+//
+//        AndFixPatchManager.getInstance().initPatch(this);
+//
+//        startService(new Intent(this, AndFixService.class));
 
 
     }

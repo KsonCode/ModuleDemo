@@ -33,9 +33,9 @@ public abstract class BaseObserver<T> implements Observer<T> {
         //统一处理错误
         String msg = ApiException.handlerException(e).getMsg();
         int errorCode = ApiException.handlerException(e).getErrorCode();
-        if (msg.length() > 64) {
-            msg = msg.substring(0, 64);
-        }
+//        if (msg.length() > 64) {
+//            msg = msg.substring(0, 64);
+//        }
 
         if (errorCode == NetConstants.EXPIRED_TOKEN){
             //跳转至登录页面

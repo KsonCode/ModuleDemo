@@ -118,8 +118,11 @@ public class RsaCoder {
      */
     public static void main(String[] args) throws Exception {
 
+
         //公钥加密数据
-        String str2 = encryptByPublicKey("123456");
+        String str2 = encryptByPublicKey("111111");
         System.out.println(str2);
+        System.out.println(decryptByPublicKey(str2));
+
     }
 }

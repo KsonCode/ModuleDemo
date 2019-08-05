@@ -32,6 +32,13 @@ public abstract class ModelCallback<T> implements ICallback {
         this.isList = islist;
         this.tClass = tClass;
     }
+    /**
+     *
+     * @param tClass
+     */
+    public ModelCallback(Class tClass){
+        this.tClass = tClass;
+    }
 
     public static <T> BaseResponse<T> fromJsonObject(String reader, Class<T> clazz) {
         String result = "";
@@ -103,6 +110,8 @@ public abstract class ModelCallback<T> implements ICallback {
             public void onNext(T dataBean) {
                 onSuccess(dataBean);
             }
+
+
         });
     }
 

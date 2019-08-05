@@ -20,6 +20,7 @@ import com.example.kson.lib_net.network.OkhttpHelper;
 import com.example.kson.lib_net.network.http.HttpRequestPresenter;
 import com.example.kson.lib_net.network.http.ModelCallback;
 import com.example.kson.lib_net.network.http.RetrofitHttpRequest;
+import com.example.kson.lib_net.utils.publickeytool.RsaCoder;
 import com.example.kson.moduledemo.R;
 import com.example.kson.moduledemo.UserApi;
 import com.example.kson.moduledemo.common.Constants;
@@ -67,22 +68,20 @@ public class MainActivity extends BaseMvpActivity<LoginContract.ILoginModel, Log
             @Override
             public void onClick(View view) {
 
-//                HashMap<String, Object> params = new HashMap<>();
-//                params.put("uid","71");
-//                params.put("password","222222");
-//                params.put("phone", "18612991523");
-//                params.put("nickName", "18612991523");
-//                params.put("pwd", RsaCoder.encryptByPublicKey("111111"));
-////                params.put("phone", "18612991523");
-//                params.put("plateId", "12");
-//                params.put("page", "1");
-//                params.put("count", "5");
-////                params.put("pwd", RsaCoder.encryptByPublicKey("111111"));
-//
-//                showToast("121212121212121");
-//                presenter.infoRecommendList(params);
+                HashMap<String, Object> params = new HashMap<>();
 
-                ARouter.getInstance().build("/home/home2").navigation();
+                params.put("email","19655910@qq.com");
+                params.put("pwd",RsaCoder.encryptByPublicKey("111111"));
+//                params.put("code","543562");
+//                System.out.println("pwd1=="+RsaCoder.encryptByPublicKey("111111"));
+//                System.out.println("pwd2=="+RsaCoder.encryptByPublicKey("111111"));
+//                String s = RsaCoder.encryptByPublicKey("111111");
+//                params.put("pwd1",s);
+//                params.put("pwd2",s);
+
+                presenter.reg(params);
+
+//                ARouter.getInstance().build("/home/home2").navigation();
 
 //                ARouter.getInstance().build(APath.PUSH_MAIN).navigation();
 

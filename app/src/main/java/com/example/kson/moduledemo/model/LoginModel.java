@@ -95,8 +95,8 @@ public class LoginModel implements LoginContract.ILoginModel {
     }
 
     @Override
-    public void reg(HashMap<String, Object> params, PresenterCallback<UserEntity> callback) {
-        HttpRequestPresenter.getInstance().post(Constants.REG_URL, params, new ModelCallback<UserEntity>(false,UserEntity.class) {
+    public void reg(HashMap<String, Object> params, final PresenterCallback<UserEntity> callback) {
+        HttpRequestPresenter.getInstance().post(Constants.REG_URL, params, new ModelCallback<UserEntity>(UserEntity.class) {
             @Override
             public void onErrorMsg(int code, String msg) {
                 ToastUtils.showLong(msg);
@@ -105,7 +105,10 @@ public class LoginModel implements LoginContract.ILoginModel {
             @Override
             public void onSuccess(UserEntity userEntity) {
 
+//                ToastUtils.showShort(userEntity.getMessage());
+
 //                    ToastUtils.showLong(userEntity.userId);
+//                callback.onSuccess(userEntity);
             }
 
             @Override

@@ -3,7 +3,7 @@ package com.example.kson.lib_net;
 import java.io.File;
 
 /**
- *
+ *网络常量类
  */
 public class NetConstants
 {
@@ -33,5 +33,8 @@ public class NetConstants
     public static final String REQUEST_CODE_PERMISSION = "request_code_permission";
 
     public static final String SHOW_WEBVIEW = "show_webview";
+
+    //rsa公钥
+    public static final String RSA_PUB_KEY = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCuQd3gESx7VdIyRYUWjmjg61VIgUK6F45hClmqUMZ7xNiT5rlLM6e78osMvBF/yP7cVm7pK+NMCDWoVS1/AETpxJYqUlIC77ZAU8/MnP96IupnJL87vqhPcpdv7+VqLM38ls++yuD/F/HSoOQTv/leJh+dgE/4EYAJjOWFAbYfXwIDAQAB";
 
 }
